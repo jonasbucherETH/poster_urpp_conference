@@ -25,7 +25,7 @@ affiliation:
 
 main_findings:
   - "GUI, shiny, publication ready figures, documentation, export, mammals & plants"
-logoleft_name: ~/poster/logos/uzh_logo_e_pos_web_main.jpeg
+logoleft_name: "https://github.com/jonasbucherETH/poster_urpp_conference/tree/main/logos/uzh_logo_e_pos_web_main.jpeg"
 logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 logocenter_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/qr-code-black.png
 
