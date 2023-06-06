@@ -1,17 +1,18 @@
 ---
 main_topsize: 0.15 #percent coverage of the poster
 main_bottomsize: 0.1
-#ESSENTIALS
 # title: '**DNA Methylation Data Analysis Pipeline: Addressing the Genomics Reproducibility Crisis**'
 author:
   - name: 'Jonas Bucher'
-    affil: 1
+    affil: 1 <i style="font-size:44px" class="fa">&#xf0e0;</i>
+    email: 'jonas.bucher@uzh.ch'
   - name: 'Masaomi Hatakeyama'
     affil: 2,3
   - name: 'Ueli Grossniklaus'
     affil: 1,4
   - name: 'Deepak Tanwar'
-    affil: 1,4
+    affil: 1,4 <i style="font-size:44px" class="fa">&#xf0e0;</i>
+    email: 'deepak.tanwar@evolution.uzh.ch'
 affiliation:
   - num: 1
     address: 'Plant Development Genetics, Department of Plant and Microbial Biology, University of Zurich'
@@ -20,12 +21,14 @@ affiliation:
   - num: 3
     address: 'Functional Genomics Center Zurich, ETH Zürich and University of Zurich'
   - num: 4
-    address: 'URPP Evolution in Action, Department of Plant and Microbial Biology, University of Zurich'
+    address: 'URPP Evolution in Action, Department of Plant and Microbial Biology, University of Zurich<br><i style="font-size:24px" class="fa">&#xf0e0;</i>  jonas.bucher<span>&#64;</span>uzh.ch; deepak.tanwar<span>&#64;</span>evolution.uzh.ch'
+    
+# address: '\url{jonas.bucher@uzh.ch}jonas.bucher@uzh.ch; deepak.tanwar@evolution.uzh.ch'
+# address: <font style="color:white;">jonas.bucher@uzh.ch; deepak.tanwar@evolution.uzh.ch</font>
 
 # main_findings:
 #   # - "From raw data to publication-ready figures: <br> <h1 style='font-size:100px; '> DNA Methylation Pipeline for plants and mammals </h1>"
 #   - "From raw data to publication-ready figures: <br> DNA Methylation Pipeline for plants and mammals"
-
 # primary_colour: "#00c0ef"
 # secondary_colour: "#0073b7"
 title: "<br>Methylator: DNA methylation pipeline for plants and mammals"
@@ -37,11 +40,9 @@ titlebox_borderwidth:	"1cm"
 title_textcol: "#ffffff"
 logoleft_name: "figures/output-onlinepngtools.png"
 logoright_name: "figures/uzh_logo_e_pos_gross.tiff"
-author_textsize: "45pt"
+author_textsize: "40pt"
 author_textcol: "#000066"
 affiliation_textsize: "30pt"
-
-#--Poster options--#
 font_family: "Arial"
 primary_colour: "#0073b7"
 secondary_colour: "#005587"
@@ -50,15 +51,11 @@ body_bgcol: "#ffffff"
 body_textsize: "30px"
 body_textcol: "#000000"
 link_col: "#0073b7"
-
-#--Columns options--#
 column_margins: "0.4in"
 columnline_col: "#005587"
 columnline_width: "1mm"
 columnline_style: "dashed"
 column_numbers:	3
-
-#--Sections options--#
 sectitle_textcol: "#ffffff"
 sectitle_textsize:	"45pt"
 sectitle_bgcol: "#005587"
@@ -67,8 +64,6 @@ sectitle_borderwidth: "1mm"
 sectitle_boxshape: "4mm 0mm"
 sectitle2_textcol: "#005587"
 sectitle2_textsize:	"35pt"
-
-
 poster_height: "1189mm"
 poster_width: "841mm"
   
@@ -80,6 +75,8 @@ output:
     number_sections: false
 bibliography: references.bib
 link-citations: true
+editor_options: 
+  chunk_output_type: console
 ---
 
 <style>
@@ -124,10 +121,32 @@ options(knitr.table.format = "html")
 library("knitr")
 library("readxl")
 library("kableExtra")
+library(stringr)
+# library(EML)
 ```
 
 ```{r, include=FALSE}
 knitr::write_bib(c('posterdown', 'rmarkdown','pagedown'), 'packages.bib')
+```
+
+
+```{r, include=FALSE}
+library(stringr)
+fix_wrap_kable <- function(kbl) {
+
+  kbl <- kbl %>% 
+    str_remove(paste0("\\\\caption[{].+[}]\\n")) %>% # Removes the first caption
+    str_replace("\\\\end[{]tabular[}]",
+                paste0("\\\\end{tabular}\n\\\\caption{",attributes(kbl)$kable_meta$caption %>% # Adds the new caption using the string supplied in the kable 'caption' argument.
+                # The '{0,100}' is just a hack around lookbehind needing a set length, so the function will not work if the table label is longer 
+                         str_replace("(?<=[(]\\\\#.{0,100})[)]","}") %>% # Fixes and issue with pandoc syntax being mixed with LaTeX 
+                         str_replace("\\label[{]|[(]\\\\#","\\\\\\\\label{"),"}\n")) %>% # Adds an appropriate amount of backslashes before "\label"
+    set_attributes(attributes(kbl)) # Ensures that the returned object is still a kable
+  
+  attributes(kbl)$kable_meta$caption <- NA # Removes the caption from the metadata
+  
+  return(kbl)
+}
 ```
 
 
@@ -137,7 +156,7 @@ DNA Methylation is the addition of a methyl group to a molecule in the DNA. It i
 
 <figure>
 <center>
-  <img src="figures/methylation_contexts.png" width="850" style="display:block">
+  <img src="figures/methylation_contexts.png" width="950" style="display:block">
   <br>
   <figcaption><b>Figure 1:</b> Methylation contexts in mammals and plants.</figcaption>
 </center>
@@ -164,7 +183,7 @@ Here we introduce Methylator, a user-friendly tool for a full DNA methylation an
 
 <figure>
 <center>
-  <img src="figures/workflow_methylation_final.drawio.png" width="950" style="display:block">
+  <img src="figures/workflow_methylation_final.drawio.png" width="100%" style="display:block">
   <br>
   <figcaption><b>Figure 2:</b> Overview of Methylator.</figcaption>
 </center>
@@ -188,15 +207,15 @@ Although technical duplicate reads can arise from different sources, most dedupl
 
 <figure>
 <center>
-  <img src="figures/duplicates_dotted.drawio.png" width="1000" style="display:block">
+  <img src="figures/duplicates_final.drawio.png" width="100%" style="display:block">
   <br>
-  <figcaption><b>Figure 3:</b> Types of duplicates that can be present after sequencing. Adapted from [link](biostars.org/p/229842/) </figcaption>
+  <figcaption><b>Figure 3:</b> Types of duplicates that can be present after sequencing. Adapted from [biostars.org/p/229842/](biostars.org/p/229842/) </figcaption>
 </center>
 </figure>
 </b>
 
 ```{r, duplicates, include=F, fig.cap='Types of duplicates present after sequencing.'}
-knitr::include_graphics("~/git/poster_urpp_conference/figures/duplicates_dotted.drawio.png")
+knitr::include_graphics("~/git/poster_urpp_conference/figures/duplicates_final.drawio.png")
 ```
 
 # Alignment {.mybreak}
@@ -211,7 +230,7 @@ Through that, this method increases the mapping efficiency and retains a conside
 <center>
   <img src="~/git/poster_urpp_conference/figures/dirty_harry_new.drawio.png" width="950" style="display:block">
   <br>
-  <figcaption><b>Figure 4:</b> Dirty harry method for alignment. Adapted from [@Wu2019] </figcaption>
+  <figcaption><b>Figure 4:</b> Dirty harry alignment method. Adapted from @Wu2019 </figcaption>
 </center>
 </figure>
 </b>
@@ -259,9 +278,9 @@ Publication-ready figures are created using colourblind-friendly palettes. Each 
 
 <figure>
 <center>
-  <img src="figures/colourOptions_horizontal.png" width="950" style="display:block">
+  <img src="figures/colourOptions_horizontal.png" width="100%" style="display:block">
   <br>
-  <figcaption><b>Figure 8:</b> Colour customization of figures, palettes and manual.</figcaption>
+  <figcaption><b>Figure 8:</b> Colour customization of figures.</figcaption>
 </center>
 </figure>
 </b>
@@ -292,7 +311,7 @@ Publication-ready figures are created using colourblind-friendly palettes. Each 
 </style>
 
 
-```{r, toolcomparisontable}
+```{r toolcomparisontable, fig.cap="Comparison to features of popular tools. GUI = graphical user interface. CLI = command line interface. DMR/DML/DMG = Differentially Methylated Regions/Loci/Genes. GO = Gene Ontology"}
 # knitr::opts_chunk$set(echo = FALSE,
 #                       warning = FALSE,
 #                       tidy = FALSE,
@@ -333,11 +352,21 @@ knitr::kable(
   ) %>%
   row_spec(0, bold = T, extra_css = "border-bottom: 0px solid") %>%
   row_spec(seq(1,nrow(tool_comparison_table),2), background="#CCE5FF") %>%
-  row_spec(15, extra_css = "border-bottom: 0px solid") %>%
+  # row_spec(16, extra_css = "border-bottom: 3px solid") %>%
 
   # row_spec(1:nrow(tool_comparison_table), extra_css = "..") %>%
   # row_spec(seq(0,nrow(tool_comparison_table),2), background="#CCE5FF") %>%
   column_spec(1, bold = T)
+  # row_spec(16, extra_css = "border-bottom: 3px solid") %>%
+  # fix_wrap_kable
+  # footnote(general_title = "
+  # 
+  #          **Table 1:** Comparison with features of popular tools.",
+  # general = "GUI = graphical user interface
+  #          CLI = command line interface
+  #          DMR/DML/DMG = Differentially Methylated Regions/Loci/Genes
+  #          GO = Gene Ontology",
+  # title_format = "bold")
 
 # knitr::kable(
 #   tool_comparison_table, format = "latex",
@@ -351,6 +380,13 @@ knitr::kable(
 #   column_spec(1, bold = TRUE)
 ```
 
+&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;<b>Table 1:</b> Comparison with features of popular tools.<br>
+
+<!-- <b>Table 1:</b> Comparison with features of popular tools.<br><br> -->
+GUI = graphical user interface, CLI = command line interface<br>
+DMR/DML/DMG = Differentially Methylated Regions/Loci/Genes<br>
+GO = Gene Ontology
+
 <div style="line-height:30%; visibility:hidden;">
     <br>
 </div>
@@ -360,11 +396,7 @@ knitr::kable(
 <!-- * Support for plants & mammals -->
 <!-- * Interactive visualizations -->
 <!-- * Reproducibility through docker -->
-## User-friendly, reproducible and sustainable methylation data analysis pipeline
-## Support for plants & mammals
-## Can analyze metylation data from various library preparation methods for bulk sequencing
-## Interactive visualizations of results
-
+## User-friendly, reproducible and sustainable methylation data analysis pipeline<br><br>Support for plants & mammals<br><br>Can analyze metylation data from various library preparation methods for bulk sequencing <br><br>Interactive visualizations of results
 
 # References
 <div style="line-height:5%; visibility:hidden;">
