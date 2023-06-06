@@ -1,45 +1,115 @@
 ---
-main_topsize: 0.2 #percent coverage of the poster
+main_topsize: 0.15 #percent coverage of the poster
 main_bottomsize: 0.1
 #ESSENTIALS
-title: '**Pipeline for DNA Methylation Data Analysis: Addressing the Genomics Reproducibility Crisis**'
+# title: '**DNA Methylation Data Analysis Pipeline: Addressing the Genomics Reproducibility Crisis**'
 author:
-  - name: '**Jonas Bucher**'
+  - name: 'Jonas Bucher'
     affil: 1
-    main: true
-    orcid: '0000-0002-1099-3857'
-    email: 'jonas.bucher@uzh.ch'
+  - name: 'Masaomi Hatakeyama'
+    affil: 2,3
+  - name: 'Ueli Grossniklaus'
+    affil: 1,4
   - name: 'Deepak Tanwar'
-    affil: 2
-    main: true
-    email: 'deepak.tanwar@evolution.uzh.ch'
-  - name: Masa
-    affil: 3
-  - name: UG
-    affil: 3
+    affil: 1,4
 affiliation:
   - num: 1
-    address: Department of Plant and Microbial Biology, University of Zurich
+    address: 'Plant Development Genetics, Department of Plant and Microbial Biology, University of Zurich'
   - num: 2
-    address: Department of Graphics and Layouts, University of Posters; Canada
+    address: 'Evolutionary and Ecological Genomics, Department of Evolutionary Biology and Environmental Studies'
+  - num: 3
+    address: 'Functional Genomics Center Zurich, ETH Zürich and University of Zurich'
+  - num: 4
+    address: 'URPP Evolution in Action, Department of Plant and Microbial Biology, University of Zurich'
 
-main_findings:
-  - "GUI, shiny, publication ready figures, documentation, export, mammals & plants"
-logoleft_name: "https://github.com/jonasbucherETH/poster_urpp_conference/tree/main/logos/uzh_logo_e_pos_web_main.jpeg"
-logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
-logocenter_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/qr-code-black.png
+# main_findings:
+#   # - "From raw data to publication-ready figures: <br> <h1 style='font-size:100px; '> DNA Methylation Pipeline for plants and mammals </h1>"
+#   - "From raw data to publication-ready figures: <br> DNA Methylation Pipeline for plants and mammals"
 
-primary_colour: "#00c0ef"
-secondary_colour: "#0073b7"
+# primary_colour: "#00c0ef"
+# secondary_colour: "#0073b7"
+title: "<br>Methylator: DNA methylation pipeline for plants and mammals"
+titletext_fontfamily: "Arial"
+title_textsize: "80pt"
+titlebox_bgcol: "#0073b7"
+titlebox_bordercol: "#3333FF"
+titlebox_borderwidth:	"1cm"
+title_textcol: "#ffffff"
+logoleft_name: "figures/output-onlinepngtools.png"
+logoright_name: "figures/uzh_logo_e_pos_gross.tiff"
+author_textsize: "45pt"
+author_textcol: "#000066"
+affiliation_textsize: "30pt"
+
+#--Poster options--#
+font_family: "Arial"
+primary_colour: "#0073b7"
+secondary_colour: "#005587"
+accent_colour:	"#cc0000"
+body_bgcol: "#ffffff"
+body_textsize: "30px"
+body_textcol: "#000000"
+link_col: "#0073b7"
+
+#--Columns options--#
+column_margins: "0.4in"
+columnline_col: "#005587"
+columnline_width: "1mm"
+columnline_style: "dashed"
+column_numbers:	3
+
+#--Sections options--#
+sectitle_textcol: "#ffffff"
+sectitle_textsize:	"45pt"
+sectitle_bgcol: "#005587"
+sectitle_bordercol: "#005587"
+sectitle_borderwidth: "1mm"
+sectitle_boxshape: "4mm 0mm"
+sectitle2_textcol: "#005587"
+sectitle2_textsize:	"35pt"
+
+
+poster_height: "1189mm"
+poster_width: "841mm"
   
 output: 
-  posterdown::posterdown_betterport:
+  # posterdown::posterdown_betterport:
+  posterdown::posterdown_html:
     self_contained: false
     pandoc_args: --mathjax
     number_sections: false
-bibliography: packages.bib
+bibliography: references.bib
 link-citations: true
 ---
+
+<style>
+.mybreak {
+   break-before: column;
+}
+</style>
+
+
+<style>
+img {
+  display: block;
+  margin-top: -7px; /* Adjust this value as needed */
+}
+
+.my-image {
+  margin-top: -1px; /* Adjusted value for a specific image */
+}
+</style>
+
+
+```{css, echo=FALSE}
+div.logo_left{
+  width: 15%;
+}
+div.poster_title{
+  width: 70%;
+}
+```
+
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE,
@@ -47,74 +117,256 @@ knitr::opts_chunk$set(echo = FALSE,
                       tidy = FALSE,
                       message = FALSE,
                       fig.align = 'center',
-                      out.width = "100%")
+                      strip.white = T,
+                      out.width = "100%",
+                      fig.show='asis')
 options(knitr.table.format = "html") 
+library("knitr")
+library("readxl")
+library("kableExtra")
 ```
-
-# Introduction
-
-This is the `posterdown_betterport` template for the {posterdown} package! I was inspired by the twitter thread of [Mike Morrison](https://mobile.twitter.com/mikemorrison/status/1110191245035479041) and wanted to apply the `#betterposter` concept to the reproducible (yet simple to use) functionality of the {posterdown} package [@R-posterdown]. If you're not an R user don't sweat as you do **NOT** need to use it at all! Feel free to use only the Markdown functionality of this package :)
 
 ```{r, include=FALSE}
 knitr::write_bib(c('posterdown', 'rmarkdown','pagedown'), 'packages.bib')
 ```
 
-## Objectives
 
-1. Pick a template layout.
-2. Write/ create your poster content distraction free.
-3. Let posterdown do its thing!
+# Introduction
+   
+DNA Methylation is the addition of a methyl group to a molecule in the DNA. It impacts transcription and therefore plays a major role in several vital processes. In mammals, methylation predominantly occurs in CG sequence contexts, whereas in plants the CHG and CHH contexts are common as well.
 
-# Methods
+<figure>
+<center>
+  <img src="figures/methylation_contexts.png" width="850" style="display:block">
+  <br>
+  <figcaption><b>Figure 1:</b> Methylation contexts in mammals and plants.</figcaption>
+</center>
+</figure>
+</b>
 
-I will show here how to include poster elements that may be useful, such as an equation using mathjax:
-
-$$
-E = mc^2
-$$
-
-To reference a citation you can add your `.bib` file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the `.bib` file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd `[@R-pagedown]` [@R-pagedown].
-
-To get a better understanding of how to include features like these please refer to the {posterdown} [wiki](https://github.com/posterdown/wiki).
-
-**_Now on to the results!_**
-
-# Results
-
-Here you may have some figures to show off, bellow I have made a scatterplot with the infamous Iris dataset and I can even reference to the figure automatically like this, `Figure \@ref(fig:irisfigure)`, Figure \@ref(fig:irisfigure).
-
-```{r, irisfigure, fig.cap='Here is a caption for the figure. This can be added by using the "fig.cap" option in the r code chunk options, see this [link](https://yihui.name/knitr/options/#plots) from the legend himself, [Yihui Xie](https://twitter.com/xieyihui).', out.width="80%"}
-par(mar=c(2,2,0,1))
-plot(x = iris$Sepal.Length, y = iris$Sepal.Width,
-     col = iris$Species, pch = 19, xlab = "Sepal Length",
-     ylab = "Sepal Width")
+```{r methylationcontexts, include=F, fig.cap="Methylation contexts in mammals and plants.", out.width="80%"}
+# knitr::opts_chunk$set(echo = FALSE,
+#                       warning = FALSE,
+#                       tidy = FALSE,
+#                       message = FALSE,
+#                       fig.align = 'center',
+#                       out.width = "60%")
+knitr::include_graphics("figures/methylation_contexts.png")
 ```
 
-Maybe you want to show off some of that fancy code you spent so much time on to make that figure, well you can do that too! Just use the `echo=TRUE` option in the r code chunk options, Figure \@ref(fig:myprettycode)!
+Various tools to facilitate the analysis of DNA methylation data have been introduced. Usually, they focus on a small part of the workflow, which still leaves users with a sizeable amount of work to evaluate appropriate tools, transform intermediate output, and finally generate presentable figures. Additionally, many tools are limited in terms of the input data, only providing support for certain species and/or sequencing methods.
 
-```{r myprettycode, echo=TRUE, fig.cap='Boxplots, so hot right now!', fig.height=6, out.width="80%"}
-#trim whitespace
-par(mar=c(2,2,0,0))
-#plot boxplots
-boxplot(iris$Sepal.Width~iris$Species,
-        col = "#008080", 
-        border = "#0b4545",
-        ylab = "Sepal Width (cm)",
-        xlab = "Species")
+## Pipeline overview
+Here we introduce Methylator, a user-friendly tool for a full DNA methylation analysis, with a easy-to-use interface, facilitated reproducibility and interactive visualizations of results.
+<!-- <div style="line-height:30%; visibility:hidden;"> -->
+<!--     <br> -->
+<!-- </div> -->
+
+<figure>
+<center>
+  <img src="figures/workflow_methylation_final.drawio.png" width="950" style="display:block">
+  <br>
+  <figcaption><b>Figure 2:</b> Overview of Methylator.</figcaption>
+</center>
+</figure>
+</b>
+
+```{r workflow, include=F, fig.cap='Pipeline overview with the respective tools used in each step.', class.source = "my.image"}
+# knitr::opts_chunk$set(echo = FALSE,
+#                       warning = FALSE,
+#                       tidy = FALSE,
+#                       message = FALSE,
+#                       fig.align = 'center',
+#                       out.width = "100%")
+knitr::include_graphics("~/git/poster_urpp_conference/figures/workflow_methylation_thick.drawio.png")
 ```
 
-How about a neat table of data? See, Table \@ref(tab:iristable):
 
-```{r, iristable}
+# Duplicate removal
+
+Although technical duplicate reads can arise from different sources, most deduplication tools focus on PCR duplicates. Clumpify can deal with the different types of duplication in the sequencing data, such as optical duplicates. As the abundance of the types of duplicates in the data depends on the sequencing technology used, Methylator adapts the duplication removal accordingly to the user input.
+
+<figure>
+<center>
+  <img src="figures/duplicates_dotted.drawio.png" width="1000" style="display:block">
+  <br>
+  <figcaption><b>Figure 3:</b> Types of duplicates that can be present after sequencing. Adapted from [link](biostars.org/p/229842/) </figcaption>
+</center>
+</figure>
+</b>
+
+```{r, duplicates, include=F, fig.cap='Types of duplicates present after sequencing.'}
+knitr::include_graphics("~/git/poster_urpp_conference/figures/duplicates_dotted.drawio.png")
+```
+
+# Alignment {.mybreak}
+Bisulfite treatment of DNA results in a decreased sequence complexity, which deteriorates mapping efficiency. Overall, this causes loss of a big proportion of the sequencing data for analysis.
+
+## Dirty harry method
+The Dirty harry method offers an improvement to the mapping rate by remapping the unaligned reads locally.
+Through that, this method increases the mapping efficiency and retains a considerable amount of cytosine sites, which would otherwise be lost.
+
+
+<figure>
+<center>
+  <img src="~/git/poster_urpp_conference/figures/dirty_harry_new.drawio.png" width="950" style="display:block">
+  <br>
+  <figcaption><b>Figure 4:</b> Dirty harry method for alignment. Adapted from [@Wu2019] </figcaption>
+</center>
+</figure>
+</b>
+
+```{r, dirtyharry, include=F, fig.cap='Dirty harry method for alignment. Adapted from [https://academic.oup.com/bioinformatics/article/35/18/3273/5341422?login=true]'}
+knitr::include_graphics("~/git/poster_urpp_conference/figures/dirty_harry.drawio.png")
+```
+
+# Visualization
+
+For each type of analysis, several outputs are generated and visualized in a single interactive shiny app.
+Publication-ready figures are created using colourblind-friendly palettes. Each plot can be customized and downloaded individually by the user.
+
+<!-- # ```{r, shiny_1, fig.show="hold", out.width="20%", fig.cap='Colour option example for a PCA plot in...'} -->
+<!-- # knitr::include_graphics("~/git/poster_urpp_conference/figures/colourOptions.png") -->
+<!-- # knitr::include_graphics("~/git/poster_urpp_conference/figures/dotPlot.png") -->
+<!-- # ``` -->
+
+<figure>
+<center>
+  <img src="figures/enrichtmentTable.png" width="950" style="display:block">
+  <br>
+  <figcaption><b>Figure 5:</b> Enrichtment table.</figcaption>
+</center>
+</figure>
+</b>
+
+<figure>
+<center>
+  <img src="figures/dotPlot.png" width="930" style="display:block">
+  <br>
+  <figcaption><b>Figure 6:</b> Dot plot of enrichment of genes in biological processes.</figcaption>
+</center>
+</figure>
+</b>
+
+<figure>
+<center>
+  <img src="figures/volcanoPlot.png" width="950" style="display:block">
+  <br>
+  <figcaption><b>Figure 7:</b> Volcano Plot of genomic region enrichment.</figcaption>
+</center>
+</figure>
+</b>
+
+<figure>
+<center>
+  <img src="figures/colourOptions_horizontal.png" width="950" style="display:block">
+  <br>
+  <figcaption><b>Figure 8:</b> Colour customization of figures, palettes and manual.</figcaption>
+</center>
+</figure>
+</b>
+
+<!-- Dot plot of enrichment of genes in biological processes. -->
+<!-- Example of colour options for plotting, with pre-defined colourblind-friendly palettes and manual input. -->
+
+<!-- <img align="left" src="figures/dotPlot.png" width="35%" hspace="20"/> -->
+<!-- <img align="left" src="figures/colourOptions.png" width="15%" hspace="20"/> -->
+
+<!-- <figure> -->
+<!-- <center> -->
+<!--   <img src="figures/enrichmentTable.png" width="650" style="display:block"> -->
+<!--   <br> -->
+<!--   <figcaption><b>Figure 6:</b> Enrichment Table.</figcaption> -->
+<!-- </center> -->
+<!-- </figure> -->
+<!-- </b> -->
+
+<!-- <img width="20%" style="float: right;" src="~/git/poster_urpp_conference/figures/colourOptions.png"/> -->
+
+# Comparison with other tools
+
+<style>
+.table>tbody>tr>td{
+  padding: 1px; border: hidden;
+}
+</style>
+
+
+```{r, toolcomparisontable}
+# knitr::opts_chunk$set(echo = FALSE,
+#                       warning = FALSE,
+#                       tidy = FALSE,
+#                       message = FALSE,
+#                       fig.align = 'center',
+#                       out.width = "40%")
+
+tool_comparison_table <- read_xlsx("figures/Pipelines_comparison.xlsx", sheet = 2)
+
+# colnames(tool_comparison_table)[1] <- ""
+tool_comparison_table <- data.frame(lapply(tool_comparison_table, gsub, pattern = "\\<T\\>", replacement = "<h3>&#10003; </h3>"))
+tool_comparison_table <- data.frame(lapply(tool_comparison_table, gsub, pattern = "\\<F\\>", replacement = "<h3>&#10005; </h3>"))
+# tool_comparison_table <- data.frame(lapply(tool_comparison_table, gsub, pattern = "\\<T\\>", replacement = '\\checkmark'))
+# tool_comparison_table <- data.frame(lapply(tool_comparison_table, gsub, pattern = "\\<F\\>", replacement = '\\checkmark'))
+
+# colnames(tool_comparison_table)[1] <- ""
+rownames(tool_comparison_table) <- tool_comparison_table[,1]
+tool_comparison_table <- tool_comparison_table[,-1]
+colnames(tool_comparison_table)[2] <- "methylseq"
+colnames(tool_comparison_table)[5] <- "MethylC-analyzer"
+# colnames(tool_comparison_table)[1] <- "<b>Methylator</b>"
+tool_comparison_table["Copy number variation analysis", "Methylator"] <- "CNVkit"
+
+# stripe_color
+# stripe_index
+
 knitr::kable(
-  iris[1:15,1:5], format = "html",
-  caption = "A table made with the **knitr::kable** function.",
-  align = "c", col.names = c("Sepal <br> Length",
-                             "Sepal <br> Width",
-                             "Petal <br> Length",
-                             "Petal <br> Width",
-                             "Species"),
-  escape = FALSE)
+  tool_comparison_table, format = "html",
+  # caption = "Comparison to features of popular tools. GUI = graphical user interface. CLI = command line interface. DMR/DML/DMG = Differentially Methylated Regions/Loci/Genes. GO = Gene Ontology",
+  # caption = "",
+  align = "c",
+  # booktabs = T,
+  escape = FALSE) %>%
+  kable_styling(
+    # bootstrap_options = c("striped", "condensed"),
+    # bootstrap_options = c("condensed", "bordered"),
+    font_size = 23
+  ) %>%
+  row_spec(0, bold = T, extra_css = "border-bottom: 0px solid") %>%
+  row_spec(seq(1,nrow(tool_comparison_table),2), background="#CCE5FF") %>%
+  row_spec(15, extra_css = "border-bottom: 0px solid") %>%
+
+  # row_spec(1:nrow(tool_comparison_table), extra_css = "..") %>%
+  # row_spec(seq(0,nrow(tool_comparison_table),2), background="#CCE5FF") %>%
+  column_spec(1, bold = T)
+
+# knitr::kable(
+#   tool_comparison_table, format = "latex",
+#   caption = "Comparison to features of common tools. DMRs = Differentially Methylated Regions,
+#   DMLs = Differentially Methylated Loci, DMGs = Differentially Methylated Genes",
+#   align = "c",
+#   escape = FALSE) %>%
+#   kable_styling(
+#     font_size = 20
+#     ) %>%
+#   column_spec(1, bold = TRUE)
 ```
+
+<div style="line-height:30%; visibility:hidden;">
+    <br>
+</div>
+
+# Conclusion
+<!-- * User-friendly methylation analysis pipeline -->
+<!-- * Support for plants & mammals -->
+<!-- * Interactive visualizations -->
+<!-- * Reproducibility through docker -->
+## User-friendly, reproducible and sustainable methylation data analysis pipeline
+## Support for plants & mammals
+## Can analyze metylation data from various library preparation methods for bulk sequencing
+## Interactive visualizations of results
+
 
 # References
+<div style="line-height:5%; visibility:hidden;">
+    <br>
+</div>

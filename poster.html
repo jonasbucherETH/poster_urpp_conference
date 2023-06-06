@@ -2,80 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
-<title>Pipeline for DNA Methylation Data Analysis: Addressing the Genomics Reproducibility Crisis</title>
-
-
-
-
-<style type="text/css">pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */</style>
 
 
 <!--
@@ -87,28 +16,181 @@ Font-awesome icons ie github or twitter
 <!--
 Google fonts api stuff
 -->
-<link href='https://fonts.googleapis.com/css?family=Special Elite' rel='stylesheet'>
-<link href='https://fonts.googleapis.com/css?family=Rasa' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Arial' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Arial' rel='stylesheet'>
 
-<!--
-Here are the required style attributes for css to make this poster work :)
--->
+
+
+<title> Methylator: DNA methylation pipeline for plants and mammals</title>
+
+
+<script src="poster_files/kePrint-0.0.1/kePrint.js"></script>
+<link href="poster_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+
 <style>
 @page {
-size: 36in 48in;
+size: 841mm 1189mm;
 margin: 0;
 padding: 0;
 }
 body {
-margin: 0px;
-padding: 0px;
-width: 36in;
-height: 48in;
+margin: 0;
+font-size: 30px;
+width: 841mm;
+height: 1189mm;
+padding: 0;
 text-align: justify;
-font-size: 45px;
-line-height: 1.05;
+font-family: Arial;
 }
-/* RMarkdown Class Styles */
+.poster_wrap {
+width: 841mm;
+height: 1189mm;
+padding: 0cm;
+}
+.title_container {
+width: 841mm;
+height: calc(1189mm * 0.15);
+overflow: hidden;
+background-color: #0073b7;
+border: 1cm solid #005587;
+}
+.logo_left {
+float: left;
+width: 10%;
+height: 100%;
+background-color: #0073b7;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.logo_right {
+float: right;
+width: 10%;
+height: 100%;
+background-color: #0073b7;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.poster_title {
+text-align: center;
+position: relative;
+float: left;
+width: 80%;
+height: 100%;
+color: #ffffff;
+top: 50%;
+transform: translateY(-50%);
+-webkit-transform: translateY(-50%);
+}
+#title {
+font-family: Arial;
+}
+/* unvisited link */
+a:link {
+color: #0073b7;
+}
+.mybreak {
+  break-before: column;
+}
+/* visited link */
+a:visited {
+color: #0073b7;
+}
+
+/* mouse over link */
+a:hover {
+color: #0073b7;
+}
+
+/* selected link */
+a:active {
+color: #0073b7;
+}
+.poster_body {
+-webkit-column-count: 3; /* Chrome, Safari, Opera */
+-moz-column-count: 3; /* Firefox */
+column-count: 3;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+-webkit-column-rule-width: 1mm;
+-moz-column-rule-width: 1mm;
+column-rule-width: 1mm;
+-webkit-column-rule-style: dashed;
+-moz-column-rule-style: dashed;
+column-rule-style: dashed;
+-webkit-column-rule-color: #005587;
+-moz-column-rule-color: #005587;
+column-rule-color: #005587;
+column-gap: 1cm;
+padding-left: calc(1cm / 2);
+padding-right: calc(1cm / 2);
+height: 100%;
+color: #000000
+background-color: #ffffff;
+}
+.poster_title h1 {
+font-size: 80pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+.poster_body_wrap{
+width: calc(841mm + 1cm + 1cm);
+height: calc(1189mm * 0.83);
+padding-top: calc(1189mm * 0.005);
+padding-bottom: calc(1189mm * 0.01);
+background-color: #ffffff;
+}
+.poster_title h3 {
+color: #000066;
+font-size: 45pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+.poster_title h3 > sup {
+  font-size: 35pt;
+  margin-left: 0.02em;
+}
+.poster_title h5 {
+color: #FFFFFF;
+font-size: ;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+img {
+margin-top: 2cm;
+margin-bottom: 0;
+}
+.section {
+  padding: 0.2em;
+}
+.poster_body h1 {
+text-align: center;
+color: #ffffff;
+font-size: 45pt;
+border: 1mm solid #005587;
+background-color: #005587;
+border-radius: 4mm 0mm;
+margin-top: 2mm;
+margin-bottom: 2mm;
+font-weight: normal;
+}
+.poster_body h2 {
+color: #005587;
+font-size: 35pt;
+padding-left: 4mm;
+font-weight: normal;
+}
+.span {
+width: 200%;
+}
 /* center align leaflet map,
 from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
 .html-widget {
@@ -126,297 +208,71 @@ background-color: #dddddd40;
 border-radius: 4mm;
 padding: 4mm;
 width: 75%;
-margin: auto;
-margin-top: 1em;
-margin-bottom: 1em;
 /* align-items: center; */
+margin: auto;
+padding-left: 2cm;
 }
 code.sourceCode.r{
 background-color: transparent;
 font-size: 20pt;
 border-radius: 2mm;
 }
-code {
+.caption {
 font-size: 25pt;
+}
+.table caption {
+font-size: 25pt;
+padding-bottom: 3mm;
+
+}
+code {
+font-size: 1em;
 font-family: monospace;
-background-color: #0073b724;
-color: #00c0ef;
+background-color: #00558724;
+color: #0073b7;
 padding: 1.2mm;
-line-height: 1;
 border-radius: 2mm;
+}
+.poster_title code {
+font-size: 1em;
+}
+table {
+font-size: 40px;
+margin: auto;
+border-top: 3px solid #666;
+border-bottom: 3px solid #666;
+}
+table thead th {
+border-bottom: 3px solid #ddd;
+}
+td {
+padding: 8px;
+}
+th {
+padding: 15px;
 }
 caption {
 margin-bottom: 10px;
+}
+.poster_body p {
+margin-right: 4mm;
+margin-left: 4mm;
+margin-top: 6mm;
+margin-bottom: 10mm;
+}
+.poster_body ol {
+margin-right: 4mm;
+margin-left: 4mm;
+}
+#ul {
+margin-right: 4mm;
+margin-left: 4mm;
+}
+.references p {
 font-size: 20pt;
-font-style: italic;
-}
-
-tbody tr:nth-child(odd) {
-    background-color: #0073b720;
-}
-.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
-  border-spacing: 0;
-  font-size: 40%;
-  border-style: none;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-right: 1em;
-  padding-left: 1em;
-  line-height: 1em;
-}
-table {
-  margin: auto;
-}
-th {
-  padding-left: 5mm;
-  padding-right: 5mm;
-}
-.caption {
-font-size: 20pt;
-font-style: italic;
-padding-top: 0;
-}
-.references {
-font-size: 20px;
-line-height: 90%;
-}
-/* Create three unequal columns that floats next to each other */
-.column {
-float: left;
-padding: 0px;
-}
-.outer {
-width: 36in;
-height: calc(48in *  (1 - 0.2 - 0.1 - 0.01) );
--webkit-column-count: 3; /* Chrome, Safari, Opera */
--moz-column-count: 3; /* Firefox */
-column-count: 3;
--webkit-column-fill: auto;
--moz-column-fill: auto;
-column-fill: auto;
-column-gap: 0;
-padding-left: 0cm;
-padding-right: 0cm;
-/* -webkit-column-rule-width: 50%;
--moz-column-rule-width: 50%;
-column-rule-width: 50%; */
--webkit-column-rule-style: none;
--moz-column-rule-style: none;
-column-rule-style: none;
--webkit-column-rule-color: black;
--moz-column-rule-color: black;
-column-rule-color: black;
-background-color: #ffffff;
-font-family: Rasa;
-margin-top: calc(48in *  0.2 );
-padding-top: 1em;
-padding-bottom: 1em;
-}
-span.citation {
-  color: #0073b7;
-  font-weight: bold;
-}
-a {
-text-decoration: none;
-color: #0073b7;
-}
-#title {
-font-size: 125pt;
-text-align: left;
-margin: 0;
-line-height: 98%;
-border-bottom: 0;
-font-weight: normal;
-background: 0;
-}
-#author {
-color: #00c0ef;
-margin: 0;
-line-height: 85%;
-font-size: 1.17em;
-}
-#affiliation {
-padding-top: 0.1em;
-color: ;
-font-style: italic;
-font-size: 25px;
-margin: 0;
-}
-sup {
-color: #cc0000;
-}
-.affiliation sup {
-font-size: 20px;
-}
-.author {
-text-align: left;
-}
-.author sup {
-font-size: 30px;
-}
-.author_extra {
-color: #0073b7;
-margin: 0;
-line-height: 85%;
-font-size: 35px;
-text-align: left;
-}
-.outer h1, h2, h3, h4, h5, h6 {
-text-align: center;
-margin: 0;
-font-weight: bold;
-}
-.section h1 {
-  text-align:center;
-  padding-bottom:5px;
-  background:
-    linear-gradient(
-      to left,
-      #ffffff 1%,
-      #ffffff 20%,
-      #00c0ef75 33%,
-      #00c0ef 50%,
-      #00c0ef75 66%,
-      #ffffff 80%,
-      #ffffff 99%
-    )
-    left
-    bottom
-    #ffffff
-    no-repeat;
-  background-size:100% 5px ;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-.outer h2 {
-text-align: center;
-}
-.outer p, .level2 {
-color: #000000;
-}
-.outer ol {
-padding-left: 8%;
-padding-right: 8%;
-text-align: left;
-}
-.main {
-width: 36in;
-height: calc(48in * 0.2);
-position: absolute;
-background-color: #00c0ef;
-color: #ffffff90;
-font-family: Special Elite;
-background-image: linear-gradient(#00c0ef 50%,#0073b7);
-}
-.main strong {
-color: #ffffff;
-}
-.main strong > sup {
-color: #ffffff;
-}
-.main sup {
-color: #ffffff90;
-}
-#main-img-left {
-width: 10%;
-left: 0.5in;
-bottom: 0.2in;
-position: absolute;
-}
-#main-img-center {
-width: 10%;
-left: calc(36in * 0.45);
-bottom: 0.5in;
-position: absolute;
-}
-#main-img-right {
-width: 10%;
-right: 0.5in;
-bottom: 0.2in;
-position: absolute;
-}
-.main p {
-font-size: 150px;
-font-family: Special Elite;
-text-align: center;
-margin: 0;
-position: absolute;
-top: 50%;
--ms-transform: translateY(-50%);
-transform: translateY(-50%);
-margin-left: 1em;
-}
-.fab {
-color: #00000030;
-font-size: 25px;
-}
-.twitter, i {
-color: #00000030;
-font-size: 35px;
-text-decoration: none;
-}
-a.email {
-text-decoration: none;
-color: #00000030;
-font-size: 35px;
-}
-.envelope {
-color: #00000030;
-font-size: 5px;
-text-decoration: none;
-}
-.poster_wrap {
-width: 36in;
-height: 48in;
-padding: 0cm;
-}
-.main_bottom {
-width: 36in;
-height: calc(48in * 0.1);
-margin-top: calc(48in * (1 - 0.1));
-position: absolute;
-background-color: #00c0ef;
-background-image: linear-gradient(#0073b7 10%, #00c0ef);
-}
-.section {
-  padding-left: 10mm;
-  padding-right: 10mm;
-}
-span > #tab:mytable {
-  font-weight: bold;
 }
 .orcid img {
-  width: 3%;
-}
-.emphasis {
-  background-color: #008080;
-  color: #ffffff;
-  border: solid #0b2045 3mm;
-  margin: 1em;
-  padding-left: 0;
-  padding-right: 0;
-}
-.emphasis h1 {
-  font-weight: bold;
-  background: none;
-  background-color: #0b2045;
-  padding-bottom: 5mm;
-  padding-top: 1mm;
-  margin-top: -1mm;
-  margin-right: -1mm;
-  margin-left: -1mm;
-}
-.emphasis blockquote {
-  border: 0;
-}
-.emphasis ol {
-  padding: 0;
-  padding-left: 8%;
-  font-size: 100%;
-  font-weight: bold;
-}
-.emphasis p {
-  color: #ffffff;
+  width: 1em;
 }
 </style>
 </head>
@@ -424,396 +280,648 @@ span > #tab:mytable {
 
 
 <div class="poster_wrap">
-
-<div class="column outer">
-<div class="section">
-<h1 id="title"><strong>Pipeline for DNA Methylation Data Analysis: Addressing the Genomics Reproducibility Crisis</strong></h1><br>
-<h3 id="author" class="author">
-
-<strong>Jonas Bucher</strong><sup> 1, <a class="orcid" href="https://orcid.org/0000-0002-1099-3857"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup><br>
-
-<a class='envelope'><i class="fas fa-envelope"></i></a> <a href="mailto:jonas.bucher@uzh.ch" class="email">jonas.bucher@uzh.ch</a> <br>
- Deepak Tanwar<sup> 2</sup><br>
-
-<a class='envelope'><i class="fas fa-envelope"></i></a> <a href="mailto:deepak.tanwar@evolution.uzh.ch" class="email">deepak.tanwar@evolution.uzh.ch</a> <br>
-  </h3>
-
-<h5 id="author_extra", class="author_extra">
-  Masa<sup>3</sup>
- UG<sup>3</sup>
-</h5>
-
-
-<p id="affiliation" class="affiliation">
-<sup>1</sup> Department of Plant and Microbial Biology, University of Zurich<br> <sup>2</sup> Department of Graphics and Layouts, University of Posters; Canada
-</p>
+<div class="title_container">
+<!-- Left Logo  -->
+<div class="logo_left">
+<img src= 'figures/output-onlinepngtools.png' style="width: 80%">
+</div>
+<!-- Poster Title -->
+<div class= "poster_title">
+<h1 id="title"><br>Methylator: DNA methylation pipeline for plants and mammals</h1>
+<h3 id="author">Jonas Bucher<sup>1</sup>, Masaomi Hatakeyama<sup>2,3</sup>, Ueli Grossniklaus<sup>1,4</sup>, Deepak Tanwar<sup>1,4</sup></h3><br>
+<h5 id="affiliation"><sup>1</sup> Plant Development Genetics, Department of Plant and Microbial Biology, University of Zurich<br> <sup>2</sup> Evolutionary and Ecological Genomics, Department of Evolutionary Biology and Environmental Studies<br> <sup>3</sup> Functional Genomics Center Zurich, ETH Zürich and University of Zurich<br> <sup>4</sup> URPP Evolution in Action, Department of Plant and Microbial Biology, University of Zurich</h5>
+</div>
+<!-- Right Logo  -->
+<div class="logo_right">
+<img src=figures/uzh_logo_e_pos_gross.tiff style="width: 80%">
+</div>
 </div>
 
+<div class='poster_body_wrap'>
+<div class='poster_body'>
+<style>
+.mybreak {
+   break-before: column;
+}
+</style>
+<style>
+img {
+  display: block;
+  margin-top: -7px; /* Adjust this value as needed */
+}
+
+.my-image {
+  margin-top: -1px; /* Adjusted value for a specific image */
+}
+</style>
+<style type="text/css">
+div.logo_left{
+  width: 15%;
+}
+div.poster_title{
+  width: 70%;
+}
+</style>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>This is the <code>posterdown_betterport</code> template for the {posterdown} package! I was inspired by the twitter thread of <a href="https://mobile.twitter.com/mikemorrison/status/1110191245035479041">Mike Morrison</a> and wanted to apply the <code>#betterposter</code> concept to the reproducible (yet simple to use) functionality of the {posterdown} package <span class="citation">(<a href="#ref-R-posterdown" role="doc-biblioref">Thorne 2019</a>)</span>. If you’re not an R user don’t sweat as you do <strong>NOT</strong> need to use it at all! Feel free to use only the Markdown functionality of this package :)</p>
-<div id="objectives" class="section level2">
-<h2>Objectives</h2>
-<ol style="list-style-type: decimal">
-<li>Pick a template layout.</li>
-<li>Write/ create your poster content distraction free.</li>
-<li>Let posterdown do its thing!</li>
-</ol>
+<p>DNA Methylation is the addition of a methyl group to a molecule in the DNA. It impacts transcription and therefore plays a major role in several vital processes. In mammals, methylation predominantly occurs in CG sequence contexts, whereas in plants the CHG and CHH contexts are common as well.</p>
+<figure>
+<center>
+<img src="figures/methylation_contexts.png" width="850" style="display:block">
+<br>
+<figcaption>
+<b>Figure 1:</b> Methylation contexts in mammals and plants.
+</figcaption>
+</center>
+</figure>
+<p></b></p>
+<p>Various tools to facilitate the analysis of DNA methylation data have been introduced. Usually, they focus on a small part of the workflow, which still leaves users with a sizeable amount of work to evaluate appropriate tools, transform intermediate output, and finally generate presentable figures. Additionally, many tools are limited in terms of the input data, only providing support for certain species and/or sequencing methods.</p>
+<div id="pipeline-overview" class="section level2">
+<h2>Pipeline overview</h2>
+<p>Here we introduce Methylator, a user-friendly tool for a full DNA methylation analysis, with a easy-to-use interface, facilitated reproducibility and interactive visualizations of results.
+<!-- <div style="line-height:30%; visibility:hidden;"> -->
+<!--     <br> -->
+<!-- </div> --></p>
+<figure>
+<center>
+<img src="figures/workflow_methylation_final.drawio.png" width="950" style="display:block">
+<br>
+<figcaption>
+<b>Figure 2:</b> Overview of Methylator.
+</figcaption>
+</center>
+</figure>
+<p></b></p>
 </div>
 </div>
-<div id="methods" class="section level1">
-<h1>Methods</h1>
-<p>I will show here how to include poster elements that may be useful, such as an equation using mathjax:</p>
-<p><span class="math display">\[
-E = mc^2
-\]</span></p>
-<p>To reference a citation you can add your <code>.bib</code> file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the <code>.bib</code> file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd <code>[@R-pagedown]</code> <span class="citation">(<a href="#ref-R-pagedown" role="doc-biblioref">Xie et al. 2022</a>)</span>.</p>
-<p>To get a better understanding of how to include features like these please refer to the {posterdown} <a href="https://github.com/posterdown/wiki">wiki</a>.</p>
-<p><strong><em>Now on to the results!</em></strong></p>
+<div id="duplicate-removal" class="section level1">
+<h1>Duplicate removal</h1>
+<p>Although technical duplicate reads can arise from different sources, most deduplication tools focus on PCR duplicates. Clumpify can deal with the different types of duplication in the sequencing data, such as optical duplicates. As the abundance of the types of duplicates in the data depends on the sequencing technology used, Methylator adapts the duplication removal accordingly to the user input.</p>
+<figure>
+<center>
+<img src="figures/duplicates_dotted.drawio.png" width="1000" style="display:block">
+<br>
+<figcaption>
+<b>Figure 3:</b> Types of duplicates that can be present after sequencing. Adapted from <a href="biostars.org/p/229842/">link</a>
+</figcaption>
+</center>
+</figure>
+<p></b></p>
 </div>
-<div id="results" class="section level1">
-<h1>Results</h1>
-<p>Here you may have some figures to show off, bellow I have made a scatterplot with the infamous Iris dataset and I can even reference to the figure automatically like this, <code>Figure \@ref(fig:irisfigure)</code>, Figure <a href="#fig:irisfigure">1</a>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:irisfigure"></span>
-<img src="poster_files/figure-html/irisfigure-1.png" alt="Here is a caption for the figure. This can be added by using the &quot;fig.cap&quot; option in the r code chunk options, see this [link](https://yihui.name/knitr/options/#plots) from the legend himself, [Yihui Xie](https://twitter.com/xieyihui)." width="80%" />
-<p class="caption">
-Figure 1: Here is a caption for the figure. This can be added by using the “fig.cap” option in the r code chunk options, see this <a href="https://yihui.name/knitr/options/#plots">link</a> from the legend himself, <a href="https://twitter.com/xieyihui">Yihui Xie</a>.
-</p>
+<div id="alignment" class="section level1 mybreak">
+<h1>Alignment</h1>
+<p>Bisulfite treatment of DNA results in a decreased sequence complexity, which deteriorates mapping efficiency. Overall, this causes loss of a big proportion of the sequencing data for analysis.</p>
+<div id="dirty-harry-method" class="section level2">
+<h2>Dirty harry method</h2>
+<p>The Dirty harry method offers an improvement to the mapping rate by remapping the unaligned reads locally.
+Through that, this method increases the mapping efficiency and retains a considerable amount of cytosine sites, which would otherwise be lost.</p>
+<figure>
+<center>
+<img src="figures/dirty_harry_new.drawio.png" width="950" style="display:block">
+<br>
+<figcaption>
+<b>Figure 4:</b> Dirty harry method for alignment. Adapted from <span class="citation">(<a href="#ref-Wu2019" role="doc-biblioref">Wu et al. 2019</a>)</span>
+</figcaption>
+</center>
+</figure>
+<p></b></p>
 </div>
-<p>Maybe you want to show off some of that fancy code you spent so much time on to make that figure, well you can do that too! Just use the <code>echo=TRUE</code> option in the r code chunk options, Figure <a href="#fig:myprettycode">2</a>!</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#trim whitespace</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#plot boxplots</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(iris<span class="sc">$</span>Sepal.Width<span class="sc">~</span>iris<span class="sc">$</span>Species,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">&quot;#008080&quot;</span>, </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">border =</span> <span class="st">&quot;#0b4545&quot;</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;Sepal Width (cm)&quot;</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Species&quot;</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:myprettycode"></span>
-<img src="poster_files/figure-html/myprettycode-1.png" alt="Boxplots, so hot right now!" width="80%" />
-<p class="caption">
-Figure 2: Boxplots, so hot right now!
-</p>
 </div>
-<p>How about a neat table of data? See, Table <a href="#tab:iristable">1</a>:</p>
-<table>
-<caption>
-<span id="tab:iristable">Table 1: </span>A table made with the <strong>knitr::kable</strong> function.
-</caption>
+<div id="visualization" class="section level1">
+<h1>Visualization</h1>
+<p>For each type of analysis, several outputs are generated and visualized in a single interactive shiny app.
+Publication-ready figures are created using colourblind-friendly palettes. Each plot can be customized and downloaded individually by the user.</p>
+<!-- # ```{r, shiny_1, fig.show="hold", out.width="20%", fig.cap='Colour option example for a PCA plot in...'} -->
+<!-- # knitr::include_graphics("~/git/poster_urpp_conference/figures/colourOptions.png") -->
+<!-- # knitr::include_graphics("~/git/poster_urpp_conference/figures/dotPlot.png") -->
+<!-- # ``` -->
+<figure>
+<center>
+<img src="figures/enrichtmentTable.png" width="950" style="display:block">
+<br>
+<figcaption>
+<b>Figure 5:</b> Enrichtment table.
+</figcaption>
+</center>
+</figure>
+<p></b></p>
+<figure>
+<center>
+<img src="figures/dotPlot.png" width="930" style="display:block">
+<br>
+<figcaption>
+<b>Figure 6:</b> Dot plot of enrichment of genes in biological processes.
+</figcaption>
+</center>
+</figure>
+<p></b></p>
+<figure>
+<center>
+<img src="figures/volcanoPlot.png" width="950" style="display:block">
+<br>
+<figcaption>
+<b>Figure 7:</b> Volcano Plot of genomic region enrichment.
+</figcaption>
+</center>
+</figure>
+<p></b></p>
+<figure>
+<center>
+<img src="figures/colourOptions_horizontal.png" width="950" style="display:block">
+<br>
+<figcaption>
+<b>Figure 8:</b> Colour customization of figures, palettes and manual.
+</figcaption>
+</center>
+</figure>
+<p></b></p>
+<!-- Dot plot of enrichment of genes in biological processes. -->
+<!-- Example of colour options for plotting, with pre-defined colourblind-friendly palettes and manual input. -->
+<!-- <img align="left" src="figures/dotPlot.png" width="35%" hspace="20"/> -->
+<!-- <img align="left" src="figures/colourOptions.png" width="15%" hspace="20"/> -->
+<!-- <figure> -->
+<!-- <center> -->
+<!--   <img src="figures/enrichmentTable.png" width="650" style="display:block"> -->
+<!--   <br> -->
+<!--   <figcaption><b>Figure 6:</b> Enrichment Table.</figcaption> -->
+<!-- </center> -->
+<!-- </figure> -->
+<!-- </b> -->
+<!-- <img width="20%" style="float: right;" src="figures/colourOptions.png"/> -->
+</div>
+<div id="comparison-with-other-tools" class="section level1">
+<h1>Comparison with other tools</h1>
+<style>
+.table>tbody>tr>td{
+  padding: 1px; border: hidden;
+}
+</style>
+<table class="table" style="font-size: 23px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
-<th style="text-align:center;">
-Sepal <br> Length
+<th style="text-align:left;font-weight: bold;border-bottom: 0px solid">
 </th>
-<th style="text-align:center;">
-Sepal <br> Width
+<th style="text-align:center;font-weight: bold;border-bottom: 0px solid">
+Methylator
 </th>
-<th style="text-align:center;">
-Petal <br> Length
+<th style="text-align:center;font-weight: bold;border-bottom: 0px solid">
+methylseq
 </th>
-<th style="text-align:center;">
-Petal <br> Width
+<th style="text-align:center;font-weight: bold;border-bottom: 0px solid">
+ARPEGGIO
 </th>
-<th style="text-align:center;">
-Species
+<th style="text-align:center;font-weight: bold;border-bottom: 0px solid">
+MethylStar
+</th>
+<th style="text-align:center;font-weight: bold;border-bottom: 0px solid">
+MethylC-analyzer
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">
-5.1
+<td style="text-align:left;background-color: #CCE5FF !important;font-weight: bold;">
+Platform independent
 </td>
-<td style="text-align:center;">
-3.5
+<td style="text-align:center;background-color: #CCE5FF !important;">
+<h3>
+✓
+</h3>
 </td>
-<td style="text-align:center;">
-1.4
+<td style="text-align:center;background-color: #CCE5FF !important;">
+<h3>
+✓
+</h3>
 </td>
-<td style="text-align:center;">
-0.2
+<td style="text-align:center;background-color: #CCE5FF !important;">
+<h3>
+✕
+</h3>
 </td>
-<td style="text-align:center;">
-setosa
+<td style="text-align:center;background-color: #CCE5FF !important;">
+<h3>
+✓
+</h3>
 </td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.9
-</td>
-<td style="text-align:center;">
-3.0
-</td>
-<td style="text-align:center;">
-1.4
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-setosa
+<td style="text-align:center;background-color: #CCE5FF !important;">
+<h3>
+✕
+</h3>
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-4.7
+<td style="text-align:left;font-weight: bold;">
+Self-contained
 </td>
 <td style="text-align:center;">
-3.2
+<h3>
+✓
+</h3>
 </td>
 <td style="text-align:center;">
-1.3
+<h3>
+✓
+</h3>
 </td>
 <td style="text-align:center;">
-0.2
+<h3>
+✓
+</h3>
 </td>
 <td style="text-align:center;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.6
+<h3>
+✓
+</h3>
 </td>
 <td style="text-align:center;">
-3.1
-</td>
-<td style="text-align:center;">
-1.5
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-setosa
+<h3>
+✕
+</h3>
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-5.0
+<td style="text-align:left;background-color: #CCE5FF !important;font-weight: bold;">
+Interface
 </td>
-<td style="text-align:center;">
-3.6
+<td style="text-align:center;background-color: #CCE5FF !important;">
+GUI (SUSHI, Galaxy, Shiny), CLI
 </td>
-<td style="text-align:center;">
-1.4
+<td style="text-align:center;background-color: #CCE5FF !important;">
+CLI
 </td>
-<td style="text-align:center;">
-0.2
+<td style="text-align:center;background-color: #CCE5FF !important;">
+CLI
 </td>
-<td style="text-align:center;">
-setosa
+<td style="text-align:center;background-color: #CCE5FF !important;">
+CLI
 </td>
-</tr>
-<tr>
-<td style="text-align:center;">
-5.4
-</td>
-<td style="text-align:center;">
-3.9
-</td>
-<td style="text-align:center;">
-1.7
-</td>
-<td style="text-align:center;">
-0.4
-</td>
-<td style="text-align:center;">
-setosa
+<td style="text-align:center;background-color: #CCE5FF !important;">
+CLI, GUI
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-4.6
+<td style="text-align:left;font-weight: bold;">
+Input Data
 </td>
 <td style="text-align:center;">
-3.4
+WGBS, RRBS, PBAT, TAPS, ABBS
 </td>
 <td style="text-align:center;">
-1.4
+WGBS, RRBS
 </td>
 <td style="text-align:center;">
-0.3
+WGBS
 </td>
 <td style="text-align:center;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-5.0
+WGBS, PBAT, single-cell
 </td>
 <td style="text-align:center;">
-3.4
-</td>
-<td style="text-align:center;">
-1.5
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-setosa
+WGBS, RRBS
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-4.4
+<td style="text-align:left;background-color: #CCE5FF !important;font-weight: bold;">
+Supported genomes
 </td>
-<td style="text-align:center;">
-2.9
+<td style="text-align:center;background-color: #CCE5FF !important;">
+Mammals, Plants (incl. Polyploids)
 </td>
-<td style="text-align:center;">
-1.4
+<td style="text-align:center;background-color: #CCE5FF !important;">
+General
 </td>
-<td style="text-align:center;">
-0.2
+<td style="text-align:center;background-color: #CCE5FF !important;">
+Polyploids
 </td>
-<td style="text-align:center;">
-setosa
+<td style="text-align:center;background-color: #CCE5FF !important;">
+Mammals, Plants
 </td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.9
-</td>
-<td style="text-align:center;">
-3.1
-</td>
-<td style="text-align:center;">
-1.5
-</td>
-<td style="text-align:center;">
-0.1
-</td>
-<td style="text-align:center;">
-setosa
+<td style="text-align:center;background-color: #CCE5FF !important;">
+Mammals, Plants
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-5.4
+<td style="text-align:left;font-weight: bold;">
+Quality control
 </td>
 <td style="text-align:center;">
-3.7
+<h3>
+✓
+</h3>
 </td>
 <td style="text-align:center;">
-1.5
+<h3>
+✓
+</h3>
 </td>
 <td style="text-align:center;">
-0.2
+<h3>
+✓
+</h3>
 </td>
 <td style="text-align:center;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.8
+<h3>
+✓
+</h3>
 </td>
 <td style="text-align:center;">
-3.4
-</td>
-<td style="text-align:center;">
-1.6
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-setosa
+<h3>
+✕
+</h3>
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-4.8
+<td style="text-align:left;background-color: #CCE5FF !important;font-weight: bold;">
+Alignment
 </td>
-<td style="text-align:center;">
-3.0
+<td style="text-align:center;background-color: #CCE5FF !important;">
+Bismark (incl. dirty harry),
+Arioc (GPU-based), EAGLE-RC
 </td>
-<td style="text-align:center;">
-1.4
+<td style="text-align:center;background-color: #CCE5FF !important;">
+Bismark, bwa-meth
 </td>
-<td style="text-align:center;">
-0.1
+<td style="text-align:center;background-color: #CCE5FF !important;">
+Bismark, EAGLE-RC
 </td>
-<td style="text-align:center;">
-setosa
+<td style="text-align:center;background-color: #CCE5FF !important;">
+Bismark
 </td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.3
-</td>
-<td style="text-align:center;">
-3.0
-</td>
-<td style="text-align:center;">
-1.1
-</td>
-<td style="text-align:center;">
-0.1
-</td>
-<td style="text-align:center;">
-setosa
+<td style="text-align:center;background-color: #CCE5FF !important;">
+<h3>
+✕
+</h3>
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-5.8
+<td style="text-align:left;font-weight: bold;">
+Deduplication
 </td>
 <td style="text-align:center;">
-4.0
+Clumpify
 </td>
 <td style="text-align:center;">
-1.2
+Bismark, Picard
 </td>
 <td style="text-align:center;">
-0.2
+Bismark
 </td>
 <td style="text-align:center;">
-setosa
+Bismark
+</td>
+<td style="text-align:center;">
+<h3>
+✕
+</h3>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: #CCE5FF !important;font-weight: bold;">
+Methylation context
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;">
+All
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;">
+All
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;">
+All
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;">
+All
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;">
+All
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Exploratory data analysis
+</td>
+<td style="text-align:center;">
+PCA, heatmaps, methylation summaries
+</td>
+<td style="text-align:center;">
+<h3>
+✕
+</h3>
+</td>
+<td style="text-align:center;">
+<h3>
+✕
+</h3>
+</td>
+<td style="text-align:center;">
+<h3>
+✕
+</h3>
+</td>
+<td style="text-align:center;">
+PCA, heatmaps,
+methylation summaries
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: #CCE5FF !important;font-weight: bold;">
+Differential methylation analysis
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;">
+DMRs, DMLs
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;">
+<h3>
+✕
+</h3>
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;">
+<h3>
+✓
+</h3>
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;">
+<h3>
+✕
+</h3>
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;">
+DMRs and DMGs
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Copy number variation analysis
+</td>
+<td style="text-align:center;">
+CNVkit
+</td>
+<td style="text-align:center;">
+<h3>
+✕
+</h3>
+</td>
+<td style="text-align:center;">
+<h3>
+✕
+</h3>
+</td>
+<td style="text-align:center;">
+<h3>
+✕
+</h3>
+</td>
+<td style="text-align:center;">
+<h3>
+✕
+</h3>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: #CCE5FF !important;font-weight: bold;">
+Functional analysis
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;">
+GO, Kegg, Reactome, user-defined
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;">
+<h3>
+✕
+</h3>
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;">
+<h3>
+✕
+</h3>
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;">
+<h3>
+✕
+</h3>
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;">
+<h3>
+✕
+</h3>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Motif analysis
+</td>
+<td style="text-align:center;">
+Homer
+</td>
+<td style="text-align:center;">
+<h3>
+✕
+</h3>
+</td>
+<td style="text-align:center;">
+<h3>
+✕
+</h3>
+</td>
+<td style="text-align:center;">
+<h3>
+✕
+</h3>
+</td>
+<td style="text-align:center;">
+<h3>
+✕
+</h3>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: #CCE5FF !important;border-bottom: 0px solidfont-weight: bold;">
+Visualization
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;border-bottom: 0px solid">
+<h3>
+✓
+</h3>
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;border-bottom: 0px solid">
+<h3>
+✕
+</h3>
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;border-bottom: 0px solid">
+<h3>
+✕
+</h3>
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;border-bottom: 0px solid">
+<h3>
+✕
+</h3>
+</td>
+<td style="text-align:center;background-color: #CCE5FF !important;border-bottom: 0px solid">
+<h3>
+✓
+</h3>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Year published
+</td>
+<td style="text-align:center;">
+In development
+</td>
+<td style="text-align:center;">
+2020
+</td>
+<td style="text-align:center;">
+2021
+</td>
+<td style="text-align:center;">
+2020
+</td>
+<td style="text-align:center;">
+2023
 </td>
 </tr>
 </tbody>
 </table>
+<div style="line-height:30%; visibility:hidden;">
+<pre><code>&lt;br&gt;</code></pre>
 </div>
-<div id="references" class="section level1 unnumbered">
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<!-- * User-friendly methylation analysis pipeline -->
+<!-- * Support for plants & mammals -->
+<!-- * Interactive visualizations -->
+<!-- * Reproducibility through docker -->
+<div id="user-friendly-reproducible-and-sustainable-methylation-data-analysis-pipeline" class="section level2">
+<h2>User-friendly, reproducible and sustainable methylation data analysis pipeline</h2>
+</div>
+<div id="support-for-plants-mammals" class="section level2">
+<h2>Support for plants &amp; mammals</h2>
+</div>
+<div id="can-analyze-metylation-data-from-various-library-preparation-methods-for-bulk-sequencing" class="section level2">
+<h2>Can analyze metylation data from various library preparation methods for bulk sequencing</h2>
+</div>
+<div id="interactive-visualizations-of-results" class="section level2">
+<h2>Interactive visualizations of results</h2>
+</div>
+</div>
+<div id="references" class="section level1">
 <h1>References</h1>
+<div style="line-height:5%; visibility:hidden;">
+<pre><code>&lt;br&gt;</code></pre>
+</div>
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-R-posterdown" class="csl-entry">
-Thorne, Brent. 2019. <em>Posterdown: Generate PDF Conference Posters Using r Markdown</em>. <a href="https://github.com/brentthorne/posterdown">https://github.com/brentthorne/posterdown</a>.
-</div>
-<div id="ref-R-pagedown" class="csl-entry">
-Xie, Yihui, Romain Lesur, Brent Thorne, and Xianying Tan. 2022. <em>Pagedown: Paginate the HTML Output of r Markdown with CSS for Print</em>. <a href="https://github.com/rstudio/pagedown">https://github.com/rstudio/pagedown</a>.
+<div id="ref-Wu2019" class="csl-entry">
+Wu, Peng, Yan Gao, Weilong Guo, and Ping Zhu. 2019. <span>“Using Local Alignment to Enhance Single-Cell Bisulfite Sequencing Data Efficiency.”</span> <em>Bioinformatics</em> 35 (September): 3273–78. <a href="https://doi.org/10.1093/bioinformatics/btz125">https://doi.org/10.1093/bioinformatics/btz125</a>.
 </div>
 </div>
 </div>
-
-</div>
-<div class="main">
-<p>GUI, shiny, publication ready figures, documentation, export, mammals &amp; plants</p>
-</div>
-<div class="main_bottom">
-<img id="main-img-left" src=<a href="https://github.com/jonasbucherETH/poster_urpp_conference/tree/main/logos/uzh_logo_e_pos_web_main.jpeg" class="uri">https://github.com/jonasbucherETH/poster_urpp_conference/tree/main/logos/uzh_logo_e_pos_web_main.jpeg</a>>
-<img id="main-img-center" src=https://raw.githubusercontent.com/brentthorne/posterdown/master/images/qr-code-black.png>
-<img id="main-img-right" src=https://raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png>
 </div>
 </div>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-(function () {
-var script = document.createElement("script");
-script.type = "text/javascript";
-var src = "true";
-if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-if (location.protocol !== "file:" && /^https?:/.test(src))
-src = src.replace(/^https?:/, '');
-script.src = src;
-document.getElementsByTagName("head")[0].appendChild(script);
-})();
-</script>
+</div>
+
 
 
 </body>
