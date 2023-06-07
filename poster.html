@@ -21,7 +21,7 @@ Google fonts api stuff
 
 
 
-<title> Methylator: DNA methylation pipeline for plants and mammals</title>
+<title> Methylator - DNA methylation pipeline for plants and mammals</title>
 
 
 <script src="poster_files/kePrint-0.0.1/kePrint.js"></script>
@@ -134,7 +134,7 @@ color: #000000
 background-color: #ffffff;
 }
 .poster_title h1 {
-font-size: 80pt;
+font-size: 95pt;
 margin: 0;
 border: 0;
 font-weight: normal;
@@ -287,13 +287,13 @@ font-size: 20pt;
 </div>
 <!-- Poster Title -->
 <div class= "poster_title">
-<h1 id="title"><br>Methylator: DNA methylation pipeline for plants and mammals</h1>
+<h1 id="title"><span class="brsmall"></span> Methylator - DNA methylation pipeline<br>for plants and mammals</h1>
 <h3 id="author">Jonas Bucher<sup>1 <i style="font-size:44px" class="fa"></i></sup>, Masaomi Hatakeyama<sup>2,3</sup>, Ueli Grossniklaus<sup>1,4</sup>, Deepak Tanwar<sup>1,4 <i style="font-size:44px" class="fa"></i></sup></h3><br>
-<h5 id="affiliation"><sup>1</sup> Plant Development Genetics, Department of Plant and Microbial Biology, University of Zurich<br> <sup>2</sup> Evolutionary and Ecological Genomics, Department of Evolutionary Biology and Environmental Studies<br> <sup>3</sup> Functional Genomics Center Zurich, ETH Zürich and University of Zurich<br> <sup>4</sup> URPP Evolution in Action, Department of Plant and Microbial Biology, University of Zurich<br><i style="font-size:24px" class="fa"></i> jonas.bucher<span>@</span>uzh.ch; deepak.tanwar<span>@</span>evolution.uzh.ch</h5>
+<h5 id="affiliation"><sup>1</sup> Plant Development Genetics, Department of Plant and Microbial Biology, University of Zurich<br> <sup>2</sup> Evolutionary and Ecological Genomics, Department of Evolutionary Biology and Environmental Studies<br> <sup>3</sup> Functional Genomics Center Zurich, ETH Zürich and University of Zurich<br> <sup>4</sup> URPP Evolution in Action, Department of Plant and Microbial Biology, University of Zurich<br><br><i style="font-size:24px" class="fa"></i> jonas.bucher<span>@</span>uzh.ch | deepak.tanwar<span>@</span>evolution.uzh.ch</h5>
 </div>
 <!-- Right Logo  -->
 <div class="logo_right">
-<img src=figures/uzh_logo_e_pos_gross.tiff style="width: 80%">
+<img src=figures/QR_800.png style="width: 80%">
 </div>
 </div>
 
@@ -305,6 +305,11 @@ font-size: 20pt;
 }
 </style>
 <style>
+.ref-align {
+  text-align: left
+}
+</style>
+<style>
 img {
   display: block;
   margin-top: -7px; /* Adjust this value as needed */
@@ -313,6 +318,20 @@ img {
 .my-image {
   margin-top: -1px; /* Adjusted value for a specific image */
 }
+</style>
+<style type="text/css">
+    .brsmall {
+        display: block;
+        margin-bottom: .3em;
+    }
+    .brxsmall {
+        display: block;
+        margin-bottom: .4em;
+    }
+    .brsmallneg {
+        display: block;
+        margin-bottom: -.4em;
+    }
 </style>
 <style type="text/css">
 div.logo_left{
@@ -335,9 +354,10 @@ div.poster_title{
 </center>
 </figure>
 <p></b></p>
-<p>Various tools to facilitate the analysis of DNA methylation data have been introduced. Usually, they focus on a small part of the workflow, which still leaves users with a sizeable amount of work to evaluate appropriate tools, transform intermediate output, and finally generate presentable figures. Additionally, many tools are limited in terms of the input data, only providing support for certain species and/or sequencing methods.</p>
-<div id="pipeline-overview" class="section level2">
-<h2>Pipeline overview</h2>
+<p>Various tools have been introduced to facilitate the analysis of DNA methylation data. Usually, they focus on a small part of the workflow, which still leaves users with a considerable amount of work to evaluate appropriate tools, transform intermediate output, and finally generate presentable figures. Additionally, many tools are limited in terms of the input data, only providing support for certain species and/or sequencing methods.</p>
+</div>
+<div id="pipeline-overview" class="section level1">
+<h1>Pipeline overview</h1>
 <p>Here we introduce Methylator, a user-friendly tool for a full DNA methylation analysis, with a easy-to-use interface, facilitated reproducibility and interactive visualizations of results.
 <!-- <div style="line-height:30%; visibility:hidden;"> -->
 <!--     <br> -->
@@ -353,10 +373,11 @@ div.poster_title{
 </figure>
 <p></b></p>
 </div>
-</div>
 <div id="duplicate-removal" class="section level1">
 <h1>Duplicate removal</h1>
 <p>Although technical duplicate reads can arise from different sources, most deduplication tools focus on PCR duplicates. Clumpify can deal with the different types of duplication in the sequencing data, such as optical duplicates. As the abundance of the types of duplicates in the data depends on the sequencing technology used, Methylator adapts the duplication removal accordingly to the user input.</p>
+<div id="types-of-duplicates-in-sequencing-data" class="section level2">
+<h2>Types of duplicates in sequencing data</h2>
 <figure>
 <center>
 <img src="figures/duplicates_final.drawio.png" width="100%" style="display:block">
@@ -367,6 +388,7 @@ div.poster_title{
 </center>
 </figure>
 <p></b></p>
+</div>
 </div>
 <div id="alignment" class="section level1 mybreak">
 <h1>Alignment</h1>
@@ -397,7 +419,7 @@ Publication-ready figures are created using colourblind-friendly palettes. Each 
 <!-- # ``` -->
 <figure>
 <center>
-<img src="figures/enrichtmentTable.png" width="950" style="display:block">
+<img src="figures/enrichmentTable_full.png" width="95%" style="display:block">
 <br>
 <figcaption>
 <b>Figure 5:</b> Enrichtment table.
@@ -407,7 +429,7 @@ Publication-ready figures are created using colourblind-friendly palettes. Each 
 <p></b></p>
 <figure>
 <center>
-<img src="figures/dotPlot.png" width="930" style="display:block">
+<img src="figures/dotPlot_full2.png" width="100%" style="display:block">
 <br>
 <figcaption>
 <b>Figure 6:</b> Dot plot of enrichment of genes in biological processes.
@@ -425,9 +447,11 @@ Publication-ready figures are created using colourblind-friendly palettes. Each 
 </center>
 </figure>
 <p></b></p>
+<div id="visual-customization" class="section level2">
+<h2><span class="brsmallneg"></span> Visual customization</h2>
 <figure>
 <center>
-<img src="figures/colourOptions_horizontal.png" width="100%" style="display:block">
+<img src="figures/col_merged.png" width="100%" style="display:block">
 <br>
 <figcaption>
 <b>Figure 8:</b> Colour customization of figures.
@@ -448,6 +472,7 @@ Publication-ready figures are created using colourblind-friendly palettes. Each 
 <!-- </figure> -->
 <!-- </b> -->
 <!-- <img width="20%" style="float: right;" src="figures/colourOptions.png"/> -->
+</div>
 </div>
 <div id="comparison-with-other-tools" class="section level1">
 <h1>Comparison with other tools</h1>
@@ -888,9 +913,9 @@ In development
 <p>GUI = graphical user interface, CLI = command line interface<br>
 DMR/DML/DMG = Differentially Methylated Regions/Loci/Genes<br>
 GO = Gene Ontology</p>
-<div style="line-height:30%; visibility:hidden;">
-<pre><code>&lt;br&gt;</code></pre>
-</div>
+<!-- <div style="line-height:30%; visibility:hidden;"> -->
+<!--     <br> -->
+<!-- </div> -->
 </div>
 <div id="conclusion" class="section level1">
 <h1>Conclusion</h1>
@@ -902,11 +927,9 @@ GO = Gene Ontology</p>
 <h2>User-friendly, reproducible and sustainable methylation data analysis pipeline<br><br>Support for plants &amp; mammals<br><br>Can analyze metylation data from various library preparation methods for bulk sequencing <br><br>Interactive visualizations of results</h2>
 </div>
 </div>
-<div id="references" class="section level1">
+<div id="references" class="section level1 ref-align">
 <h1>References</h1>
-<div style="line-height:5%; visibility:hidden;">
-<pre><code>&lt;br&gt;</code></pre>
-</div>
+<p><span class="brsmall"></span></p>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Wu2019" class="csl-entry">
 Wu, Peng, Yan Gao, Weilong Guo, and Ping Zhu. 2019. <span>“Using Local Alignment to Enhance Single-Cell Bisulfite Sequencing Data Efficiency.”</span> <em>Bioinformatics</em> 35 (September): 3273–78. <a href="https://doi.org/10.1093/bioinformatics/btz125">https://doi.org/10.1093/bioinformatics/btz125</a>.

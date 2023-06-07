@@ -21,7 +21,7 @@ affiliation:
   - num: 3
     address: 'Functional Genomics Center Zurich, ETH Zürich and University of Zurich'
   - num: 4
-    address: 'URPP Evolution in Action, Department of Plant and Microbial Biology, University of Zurich<br><i style="font-size:24px" class="fa">&#xf0e0;</i>  jonas.bucher<span>&#64;</span>uzh.ch; deepak.tanwar<span>&#64;</span>evolution.uzh.ch'
+    address: 'URPP Evolution in Action, Department of Plant and Microbial Biology, University of Zurich<br><br><i style="font-size:24px" class="fa">&#xf0e0;</i>  jonas.bucher<span>&#64;</span>uzh.ch | deepak.tanwar<span>&#64;</span>evolution.uzh.ch'
     
 # address: '\url{jonas.bucher@uzh.ch}jonas.bucher@uzh.ch; deepak.tanwar@evolution.uzh.ch'
 # address: <font style="color:white;">jonas.bucher@uzh.ch; deepak.tanwar@evolution.uzh.ch</font>
@@ -31,15 +31,16 @@ affiliation:
 #   - "From raw data to publication-ready figures: <br> DNA Methylation Pipeline for plants and mammals"
 # primary_colour: "#00c0ef"
 # secondary_colour: "#0073b7"
-title: "<br>Methylator: DNA methylation pipeline for plants and mammals"
+title: '<span class="brsmall"></span> Methylator - DNA methylation pipeline<br>for plants and mammals'
 titletext_fontfamily: "Arial"
-title_textsize: "80pt"
+title_textsize: "95pt"
 titlebox_bgcol: "#0073b7"
 titlebox_bordercol: "#3333FF"
 titlebox_borderwidth:	"1cm"
 title_textcol: "#ffffff"
 logoleft_name: "figures/output-onlinepngtools.png"
-logoright_name: "figures/uzh_logo_e_pos_gross.tiff"
+# logoright_name: "figures/QR_poster_transp_white.png"
+logoright_name: "figures/QR_800.png"
 author_textsize: "40pt"
 author_textcol: "#000066"
 affiliation_textsize: "30pt"
@@ -66,6 +67,7 @@ sectitle2_textcol: "#005587"
 sectitle2_textsize:	"35pt"
 poster_height: "1189mm"
 poster_width: "841mm"
+reference_textsize: "15px"
   
 output: 
   # posterdown::posterdown_betterport:
@@ -85,6 +87,11 @@ editor_options:
 }
 </style>
 
+<style>
+.ref-align {
+  text-align: left
+}
+</style>
 
 <style>
 img {
@@ -95,6 +102,21 @@ img {
 .my-image {
   margin-top: -1px; /* Adjusted value for a specific image */
 }
+</style>
+
+<style type="text/css">
+    .brsmall {
+        display: block;
+        margin-bottom: .3em;
+    }
+    .brxsmall {
+        display: block;
+        margin-bottom: .4em;
+    }
+    .brsmallneg {
+        display: block;
+        margin-bottom: -.4em;
+    }
 </style>
 
 
@@ -173,9 +195,9 @@ DNA Methylation is the addition of a methyl group to a molecule in the DNA. It i
 knitr::include_graphics("figures/methylation_contexts.png")
 ```
 
-Various tools to facilitate the analysis of DNA methylation data have been introduced. Usually, they focus on a small part of the workflow, which still leaves users with a sizeable amount of work to evaluate appropriate tools, transform intermediate output, and finally generate presentable figures. Additionally, many tools are limited in terms of the input data, only providing support for certain species and/or sequencing methods.
+Various tools have been introduced to facilitate the analysis of DNA methylation data. Usually, they focus on a small part of the workflow, which still leaves users with a considerable amount of work to evaluate appropriate tools, transform intermediate output, and finally generate presentable figures. Additionally, many tools are limited in terms of the input data, only providing support for certain species and/or sequencing methods.
 
-## Pipeline overview
+# Pipeline overview
 Here we introduce Methylator, a user-friendly tool for a full DNA methylation analysis, with a easy-to-use interface, facilitated reproducibility and interactive visualizations of results.
 <!-- <div style="line-height:30%; visibility:hidden;"> -->
 <!--     <br> -->
@@ -205,6 +227,7 @@ knitr::include_graphics("~/git/poster_urpp_conference/figures/workflow_methylati
 
 Although technical duplicate reads can arise from different sources, most deduplication tools focus on PCR duplicates. Clumpify can deal with the different types of duplication in the sequencing data, such as optical duplicates. As the abundance of the types of duplicates in the data depends on the sequencing technology used, Methylator adapts the duplication removal accordingly to the user input.
 
+## Types of duplicates in sequencing data
 <figure>
 <center>
   <img src="figures/duplicates_final.drawio.png" width="100%" style="display:block">
@@ -251,7 +274,7 @@ Publication-ready figures are created using colourblind-friendly palettes. Each 
 
 <figure>
 <center>
-  <img src="figures/enrichtmentTable.png" width="950" style="display:block">
+  <img src="figures/enrichmentTable_full.png" width="95%" style="display:block">
   <br>
   <figcaption><b>Figure 5:</b> Enrichtment table.</figcaption>
 </center>
@@ -260,7 +283,7 @@ Publication-ready figures are created using colourblind-friendly palettes. Each 
 
 <figure>
 <center>
-  <img src="figures/dotPlot.png" width="930" style="display:block">
+  <img src="figures/dotPlot_full2.png" width="100%" style="display:block">
   <br>
   <figcaption><b>Figure 6:</b> Dot plot of enrichment of genes in biological processes.</figcaption>
 </center>
@@ -276,9 +299,10 @@ Publication-ready figures are created using colourblind-friendly palettes. Each 
 </figure>
 </b>
 
+## <span class="brsmallneg"></span> Visual customization
 <figure>
 <center>
-  <img src="figures/colourOptions_horizontal.png" width="100%" style="display:block">
+  <img src="figures/col_merged.png" width="100%" style="display:block">
   <br>
   <figcaption><b>Figure 8:</b> Colour customization of figures.</figcaption>
 </center>
@@ -387,9 +411,9 @@ GUI = graphical user interface, CLI = command line interface<br>
 DMR/DML/DMG = Differentially Methylated Regions/Loci/Genes<br>
 GO = Gene Ontology
 
-<div style="line-height:30%; visibility:hidden;">
-    <br>
-</div>
+<!-- <div style="line-height:30%; visibility:hidden;"> -->
+<!--     <br> -->
+<!-- </div> -->
 
 # Conclusion
 <!-- * User-friendly methylation analysis pipeline -->
@@ -398,7 +422,5 @@ GO = Gene Ontology
 <!-- * Reproducibility through docker -->
 ## User-friendly, reproducible and sustainable methylation data analysis pipeline<br><br>Support for plants & mammals<br><br>Can analyze metylation data from various library preparation methods for bulk sequencing <br><br>Interactive visualizations of results
 
-# References
-<div style="line-height:5%; visibility:hidden;">
-    <br>
-</div>
+# References {.ref-align}
+<span class="brsmall"></span>
