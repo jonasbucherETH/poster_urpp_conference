@@ -21,7 +21,7 @@ Google fonts api stuff
 
 
 
-<title> Methylator - DNA methylation pipeline for plants and mammals</title>
+<title> Methylator - DNA cytosine methylation pipeline for plants and mammals</title>
 
 
 <script src="poster_files/kePrint-0.0.1/kePrint.js"></script>
@@ -287,7 +287,7 @@ font-size: 20pt;
 </div>
 <!-- Poster Title -->
 <div class= "poster_title">
-<h1 id="title"><span class="brsmall"></span> Methylator - DNA methylation pipeline<br>for plants and mammals</h1>
+<h1 id="title"><span class="brsmall"></span> Methylator - DNA cytosine methylation pipeline for plants and mammals</h1>
 <h3 id="author">Jonas Bucher<sup>1 <i style="font-size:44px" class="fa"></i></sup>, Masaomi Hatakeyama<sup>2,3</sup>, Ueli Grossniklaus<sup>1,4</sup>, Deepak Tanwar<sup>1,4 <i style="font-size:44px" class="fa"></i></sup></h3><br>
 <h5 id="affiliation"><sup>1</sup> Plant Development Genetics, Department of Plant and Microbial Biology, University of Zurich<br> <sup>2</sup> Evolutionary and Ecological Genomics, Department of Evolutionary Biology and Environmental Studies<br> <sup>3</sup> Functional Genomics Center Zurich, ETH Zürich and University of Zurich<br> <sup>4</sup> URPP Evolution in Action, Department of Plant and Microbial Biology, University of Zurich<br><br><i style="font-size:24px" class="fa"></i> jonas.bucher<span>@</span>uzh.ch | deepak.tanwar<span>@</span>evolution.uzh.ch</h5>
 </div>
@@ -343,7 +343,7 @@ div.poster_title{
 </style>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>DNA Methylation is the addition of a methyl group to a molecule in the DNA. It impacts transcription and therefore plays a major role in several vital processes. In mammals, methylation predominantly occurs in CG sequence contexts, whereas in plants the CHG and CHH contexts are common as well.</p>
+<p>DNA cytosine methylation is the addition of a methyl group to a cytosine in the DNA. It impacts transcription and therefore plays a major role in several vital processes. In mammals, DNA cytosine methylation predominantly occurs in CG sequence contexts, whereas in plants the CHG and CHH contexts are common as well.</p>
 <figure>
 <center>
 <img src="figures/methylation_contexts.png" width="950" style="display:block">
@@ -354,11 +354,11 @@ div.poster_title{
 </center>
 </figure>
 <p></b></p>
-<p>Various tools have been introduced to facilitate the analysis of DNA methylation data. Usually, they focus on a small part of the workflow, which still leaves users with a considerable amount of work to evaluate appropriate tools, transform intermediate output, and finally generate presentable figures. Additionally, many tools are limited in terms of the input data, only providing support for certain species and/or sequencing methods.</p>
+<p>Various tools have been introduced to facilitate the analysis of DNA cytosine methylation data. Usually, they focus on a small part of the workflow, which still leaves users with a considerable amount of work to evaluate appropriate tools, transform intermediate output, and finally generate presentable figures. Additionally, many tools are limited in terms of the input data, only providing support for certain species and/or sequencing methods.</p>
 </div>
 <div id="pipeline-overview" class="section level1">
 <h1>Pipeline overview</h1>
-<p>Here we introduce Methylator, a user-friendly tool for a full DNA methylation analysis, with a easy-to-use interface, facilitated reproducibility and interactive visualizations of results.
+<p>Here we introduce Methylator, a user-friendly tool for a full DNA cytosine methylation analysis, with a easy-to-use interface, facilitated reproducibility and interactive visualizations of results.
 <!-- <div style="line-height:30%; visibility:hidden;"> -->
 <!--     <br> -->
 <!-- </div> --></p>
@@ -394,15 +394,15 @@ div.poster_title{
 <h1>Alignment</h1>
 <p>Bisulfite treatment of DNA results in a decreased sequence complexity, which deteriorates mapping efficiency. Overall, this causes loss of a big proportion of the sequencing data for analysis.</p>
 <div id="dirty-harry-method" class="section level2">
-<h2>Dirty harry method</h2>
-<p>The Dirty harry method offers an improvement to the mapping rate by remapping the unaligned reads locally.
+<h2>Dirty Harry method</h2>
+<p>The Dirty Harry method offers an improvement to the mapping rate by remapping the unaligned reads locally.
 Through that, this method increases the mapping efficiency and retains a considerable amount of cytosine sites, which would otherwise be lost.</p>
 <figure>
 <center>
 <img src="figures/dirty_harry_new.drawio.png" width="950" style="display:block">
 <br>
 <figcaption>
-<b>Figure 4:</b> Dirty harry alignment method. Adapted from <span class="citation">Wu et al. (<a href="#ref-Wu2019" role="doc-biblioref">2019</a>)</span>
+<b>Figure 4:</b> Dirty Harry alignment method. Adapted from <span class="citation">Wu et al. (<a href="#ref-Wu2019" role="doc-biblioref">2019</a>)</span>
 </figcaption>
 </center>
 </figure>
@@ -422,7 +422,7 @@ Publication-ready figures are created using colourblind-friendly palettes. Each 
 <img src="figures/enrichmentTable_full.png" width="95%" style="display:block">
 <br>
 <figcaption>
-<b>Figure 5:</b> Enrichtment table.
+<b>Figure 5:</b> Enrichment table.
 </figcaption>
 </center>
 </figure>
@@ -432,7 +432,7 @@ Publication-ready figures are created using colourblind-friendly palettes. Each 
 <img src="figures/dotPlot_full2.png" width="100%" style="display:block">
 <br>
 <figcaption>
-<b>Figure 6:</b> Dot plot of enrichment of genes in biological processes.
+<b>Figure 6:</b> Dot plot of biological processes enrichment.
 </figcaption>
 </center>
 </figure>
@@ -442,7 +442,7 @@ Publication-ready figures are created using colourblind-friendly palettes. Each 
 <img src="figures/volcanoPlot.png" width="950" style="display:block">
 <br>
 <figcaption>
-<b>Figure 7:</b> Volcano Plot of genomic region enrichment.
+<b>Figure 7:</b> Volcano Plot of genomic regions enrichment.
 </figcaption>
 </center>
 </figure>
@@ -805,7 +805,7 @@ CNVkit
 Functional analysis
 </td>
 <td style="text-align:center;background-color: #CCE5FF !important;">
-GO, Kegg, Reactome, user-defined
+GO, KEGG, Reactome, user-defined
 </td>
 <td style="text-align:center;background-color: #CCE5FF !important;">
 <h3>
@@ -908,7 +908,7 @@ In development
 </tr>
 </tbody>
 </table>
-<p>      <b>Table 1:</b> Comparison with features of popular tools.<br></p>
+<p>      <b>Table 1:</b> Comparison with features of widely used tools.<br></p>
 <!-- <b>Table 1:</b> Comparison with features of popular tools.<br><br> -->
 <p>GUI = graphical user interface, CLI = command line interface<br>
 DMR/DML/DMG = Differentially Methylated Regions/Loci/Genes<br>
@@ -923,8 +923,8 @@ GO = Gene Ontology</p>
 <!-- * Support for plants & mammals -->
 <!-- * Interactive visualizations -->
 <!-- * Reproducibility through docker -->
-<div id="user-friendly-reproducible-and-sustainable-methylation-data-analysis-pipeline-support-for-plants-mammals-can-analyze-metylation-data-from-various-library-preparation-methods-for-bulk-sequencing-interactive-visualizations-of-results" class="section level2">
-<h2>User-friendly, reproducible and sustainable methylation data analysis pipeline<br><br>Support for plants &amp; mammals<br><br>Can analyze metylation data from various library preparation methods for bulk sequencing <br><br>Interactive visualizations of results</h2>
+<div id="user-friendly-reproducible-and-sustainable-dna-cytosine-methylation-data-analysis-pipeline-support-for-plants-mammals-can-analyze-methylation-data-from-various-library-preparation-methods-for-bulk-sequencing-interactive-visualizations-of-results" class="section level2">
+<h2>User-friendly, reproducible and sustainable DNA cytosine methylation data analysis pipeline<br><br>Support for plants &amp; mammals<br><br>Can analyze methylation data from various library preparation methods for bulk sequencing <br><br>Interactive visualizations of results</h2>
 </div>
 </div>
 <div id="references" class="section level1 ref-align">
