@@ -74,7 +74,7 @@ reference_textsize: "13px"
 output: 
   # posterdown::posterdown_betterport:
   posterdown::posterdown_html:
-    self_contained: false
+    self_contained: true
     pandoc_args: --mathjax
     number_sections: false
 bibliography: references.bib
@@ -247,7 +247,7 @@ Although technical duplicate reads can arise from different sources, most dedupl
 knitr::include_graphics("~/git/poster_urpp_conference/figures/duplicates_final.drawio.png")
 ```
 
-# Alignment {.mybreak}
+# Alignment
 Bisulfite treatment of DNA results in a decreased sequence complexity, which deteriorates mapping efficiency. Overall, this causes loss of a big proportion of the sequencing data for analysis.
 
 ## Dirty Harry method
@@ -257,7 +257,7 @@ Through that, this method increases the mapping efficiency and retains a conside
 
 <figure>
 <center>
-  <img src="~/git/poster_urpp_conference/figures/dirty_harry_new.drawio.png" width="950" style="display:block">
+  <img src="figures/dirty_harry_new.drawio.png" width="950" style="display:block">
   <br>
   <figcaption><b>Figure 4:</b> Dirty Harry alignment method. Adapted from @Wu2019 </figcaption>
 </center>
@@ -289,7 +289,7 @@ Publication-ready figures are created using colourblind-friendly palettes. Each 
 
 <figure>
 <center>
-  <img src="figures/dotPlot_full2.png" width="100%" style="display:block">
+  <img src="figures/dotPlot_full2.png" width="95%" style="display:block">
   <br>
   <figcaption><b>Figure 6:</b> Dot plot of biological processes enrichment.</figcaption>
 </center>
@@ -431,4 +431,4 @@ GO = Gene Ontology
 ## User-friendly, reproducible and sustainable DNA cytosine methylation data analysis pipeline<br><span class="brconclusion"></span>Support for plants & mammals<br><span class="brconclusion"></span>Can analyze methylation data from various library preparation methods for bulk sequencing <br><span class="brconclusion"></span>Interactive visualizations of results
 
 # References {.ref-align}
-<span class="brsmallneg"></span>
+
