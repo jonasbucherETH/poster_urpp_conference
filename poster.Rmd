@@ -17,9 +17,9 @@ affiliation:
   - num: 1
     address: 'Plant Development Genetics, Department of Plant and Microbial Biology, University of Zurich'
   - num: 2
-    address: 'Evolutionary and Ecological Genomics, Department of Evolutionary Biology and Environmental Studies'
+    address: 'Evolutionary and Ecological Genomics, Department of Evolutionary Biology and Environmental Studies, University of Zurich'
   - num: 3
-    address: 'Functional Genomics Center Zurich, ETH Zürich and University of Zurich'
+    address: 'Functional Genomics Center Zurich, ETH Zurich and University of Zurich'
   - num: 4
     address: 'URPP Evolution in Action, Department of Plant and Microbial Biology, University of Zurich<br><br><i style="font-size:24px" class="fa">&#xf0e0;</i>  jonas.bucher<span>&#64;</span>uzh.ch | deepak.tanwar<span>&#64;</span>evolution.uzh.ch'
     
@@ -180,7 +180,7 @@ fix_wrap_kable <- function(kbl) {
 
 # Introduction
    
-DNA cytosine methylation is the addition of a methyl group to a cytosine in the DNA. It impacts transcription and therefore plays a major role in several vital processes. In mammals, DNA cytosine methylation predominantly occurs in CG sequence contexts, whereas in plants the CHG and CHH contexts are common as well.
+DNA cytosine methylation is the addition of a methyl group to a cytosine in the DNA. It impacts transcription and therefore plays a major role in several vital processes. In mammals, DNA cytosine methylation predominantly occurs in CG sequence contexts. In plants, in addition to the CG context, the CHG and CHH contexts are common as well.
 
 <figure>
 <center>
@@ -201,10 +201,10 @@ DNA cytosine methylation is the addition of a methyl group to a cytosine in the 
 knitr::include_graphics("figures/methylation_contexts.png")
 ```
 
-Various tools have been introduced to facilitate the analysis of DNA cytosine methylation data. Usually, they focus on a small part of the workflow, which still leaves users with a considerable amount of work to evaluate appropriate tools, transform intermediate output, and finally generate presentable figures. Additionally, many tools are limited in terms of the input data, only providing support for certain species and/or sequencing methods.
+Various tools have been introduced to facilitate the analysis of DNA cytosine methylation data. Usually, they focus on a small part of the workflow, which still leaves users with a considerable amount of work to evaluate appropriate tools, transform intermediate output, and finally generate publication-ready figures. Additionally, many tools are limited in terms of the input data, only providing support for certain species and/or specific library preparation methods.
 
 # Pipeline overview
-Here we introduce Methylator, a user-friendly tool for a full DNA cytosine methylation analysis, with a easy-to-use interface, facilitated reproducibility and interactive visualizations of results.
+Here we introduce Methylator, a user-friendly tool for a full DNA cytosine methylation analysis, with an easy-to-use interface, facilitated reproducibility and interactive visualizations of results.
 <!-- <div style="line-height:30%; visibility:hidden;"> -->
 <!--     <br> -->
 <!-- </div> -->
