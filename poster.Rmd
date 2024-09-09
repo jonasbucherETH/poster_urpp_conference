@@ -14,6 +14,7 @@ author:
     affil: 1,4 <i style="font-size:44px" class="fa">&#xf0e0;</i>
     email: 'deepak.tanwar@evolution.uzh.ch'
 affiliation:
+    
   - num: 1
     address: 'Plant Development Genetics, Department of Plant and Microbial Biology, University of Zurich'
   - num: 2
@@ -22,18 +23,16 @@ affiliation:
     address: 'Functional Genomics Center Zurich, ETH Zurich and University of Zurich'
   - num: 4
     address: 'URPP Evolution in Action, Department of Plant and Microbial Biology, University of Zurich<br><br><i style="font-size:24px" class="fa">&#xf0e0;</i>  jonas.bucher<span>&#64;</span>uzh.ch | deepak.tanwar<span>&#64;</span>evolution.uzh.ch'
-    
 # address: '\url{jonas.bucher@uzh.ch}jonas.bucher@uzh.ch; deepak.tanwar@evolution.uzh.ch'
 # address: <font style="color:white;">jonas.bucher@uzh.ch; deepak.tanwar@evolution.uzh.ch</font>
-
 # main_findings:
 #   # - "From raw data to publication-ready figures: <br> <h1 style='font-size:100px; '> DNA Methylation Pipeline for plants and mammals </h1>"
 #   - "From raw data to publication-ready figures: <br> DNA Methylation Pipeline for plants and mammals"
 # primary_colour: "#00c0ef"
 # secondary_colour: "#0073b7"
-title: '<span class="brsmall"></span> Methylator - DNA cytosine methylation pipeline for plants and mammals'
+title: '<span class="brsmall"></span> Methylator - A Comprehensive DNA Cytosine Methylation Analysis Pipeline in Galaxy'
 titletext_fontfamily: "Arial"
-title_textsize: "95pt"
+title_textsize: "80pt"
 titlebox_bgcol: "#0073b7"
 # titlebox_bordercol: "#3333FF"
 titlebox_bordercol: "#005587"
@@ -118,6 +117,9 @@ img {
     .brsmallneg {
         display: block;
         margin-bottom: -.4em;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
     }
     .brconclusion {
         display: block;
@@ -184,7 +186,7 @@ DNA cytosine methylation is the addition of a methyl group to a cytosine in the 
 
 <figure>
 <center>
-  <img src="figures/methylation_contexts.png" width="950" style="display:block">
+  <img src="figures/methylation_contexts.png" width="980" style="display:block">
   <br>
   <figcaption><b>Figure 1:</b> Methylation contexts in mammals and plants.</figcaption>
 </center>
@@ -209,9 +211,18 @@ Here we introduce Methylator, a user-friendly tool for a full DNA cytosine methy
 <!--     <br> -->
 <!-- </div> -->
 
+<!-- <figure> -->
+<!-- <center> -->
+<!--   <img src="figures/workflow_methylation_final.drawio.png" width="100%" style="display:block"> -->
+<!--   <br> -->
+<!--   <figcaption><b>Figure 2:</b> Overview of Methylator.</figcaption> -->
+<!-- </center> -->
+<!-- </figure> -->
+<!-- </b> -->
+
 <figure>
 <center>
-  <img src="figures/workflow_methylation_final.drawio.png" width="100%" style="display:block">
+  <img src="figures/workflow_methylator_05092024.drawio.png" width="100%" style="display:block">
   <br>
   <figcaption><b>Figure 2:</b> Overview of Methylator.</figcaption>
 </center>
@@ -225,18 +236,41 @@ Here we introduce Methylator, a user-friendly tool for a full DNA cytosine methy
 #                       message = FALSE,
 #                       fig.align = 'center',
 #                       out.width = "100%")
-knitr::include_graphics("~/git/poster_urpp_conference/figures/workflow_methylation_thick.drawio.png")
+# knitr::include_graphics("figures/workflow_methylation_thick.drawio.png")
+knitr::include_graphics("figures/workflow_methylator_05092024.drawio.png")
+
 ```
 
+## Galaxy
+
+Galaxy is an open-source, web-based platform for accessible, reproducible, and transparent computational biomedical research. It provides a user-friendly interface for executing complex bioinformatics tools and workflows without requiring programming expertise. Galaxy enables researchers to upload their data, run analyses using a vast array of tools, and share their entire analytical workflow with others. This approach not only facilitates collaboration but also enhances the reproducibility of scientific findings.
+
+<figure>
+<center>
+  <img src="figures/galaxy_workflow_cut.png" width="100%" style="display:block">
+  <br>
+  <figcaption><b>Figure 3:</b> Simplified Galaxy Worfklow.</figcaption>
+</center>
+</figure>
+</b>
 
 # Duplicate removal
 
 Although technical duplicate reads can arise from different sources, most deduplication tools focus on PCR duplicates. Clumpify can deal with the different types of duplication in the sequencing data, such as optical duplicates. As the abundance of the types of duplicates in the data depends on the sequencing technology used, Methylator adapts the duplication removal accordingly to the user input.
 
-## Types of duplicates in sequencing data
+## Types of duplicates in sequencing data {.mybreak}
+<!-- <figure> -->
+<!-- <center> -->
+<!--   <img src="figures/duplicates_final.drawio.png" width="100%" style="display:block"> -->
+<!--   <br> -->
+<!--   <figcaption><b>Figure 3:</b> Types of duplicates that can be present after sequencing. Adapted from [biostars.org/p/229842/](biostars.org/p/229842/) </figcaption> -->
+<!-- </center> -->
+<!-- </figure> -->
+<!-- </b> -->
+
 <figure>
 <center>
-  <img src="figures/duplicates_final.drawio.png" width="100%" style="display:block">
+  <img src="figures/duplicates_05092024.drawio.png" width="100%" style="display:block">
   <br>
   <figcaption><b>Figure 3:</b> Types of duplicates that can be present after sequencing. Adapted from [biostars.org/p/229842/](biostars.org/p/229842/) </figcaption>
 </center>
@@ -244,7 +278,7 @@ Although technical duplicate reads can arise from different sources, most dedupl
 </b>
 
 ```{r, duplicates, include=F, fig.cap='Types of duplicates present after sequencing.'}
-knitr::include_graphics("~/git/poster_urpp_conference/figures/duplicates_final.drawio.png")
+knitr::include_graphics("figures/duplicates_final.drawio.png")
 ```
 
 # Alignment
@@ -265,27 +299,27 @@ Through that, this method increases the mapping efficiency and retains a conside
 </b>
 
 ```{r, dirtyharry, include=F, fig.cap='Dirty harry method for alignment. Adapted from [https://academic.oup.com/bioinformatics/article/35/18/3273/5341422?login=true]'}
-knitr::include_graphics("~/git/poster_urpp_conference/figures/dirty_harry.drawio.png")
+knitr::include_graphics("figures/dirty_harry.drawio.png")
 ```
 
 # Visualization
 
-For each type of analysis, several outputs are generated and visualized in a single interactive shiny app.
-Publication-ready figures are created using colourblind-friendly palettes. Each plot can be customized and downloaded individually by the user.
+For each type of analysis, several outputs are generated and visualized in a stand-alone interactive shiny app. 
+Publication-ready figures are created using recommended colourblind-friendly palettes. Each plot can be customized and downloaded individually by the user.
 
 <!-- # ```{r, shiny_1, fig.show="hold", out.width="20%", fig.cap='Colour option example for a PCA plot in...'} -->
-<!-- # knitr::include_graphics("~/git/poster_urpp_conference/figures/colourOptions.png") -->
-<!-- # knitr::include_graphics("~/git/poster_urpp_conference/figures/dotPlot.png") -->
+<!-- # knitr::include_graphics("figures/colourOptions.png") -->
+<!-- # knitr::include_graphics("figures/dotPlot.png") -->
 <!-- # ``` -->
 
-<figure>
-<center>
-  <img src="figures/enrichmentTable_full.png" width="95%" style="display:block">
-  <br>
-  <figcaption><b>Figure 5:</b> Enrichment table.</figcaption>
-</center>
-</figure>
-</b>
+<!-- <figure> -->
+<!-- <center> -->
+<!--   <img src="figures/enrichmentTable_full.png" width="95%" style="display:block"> -->
+<!--   <br> -->
+<!--   <figcaption><b>Figure 5:</b> Enrichment table.</figcaption> -->
+<!-- </center> -->
+<!-- </figure> -->
+<!-- </b> -->
 
 <figure>
 <center>
@@ -298,7 +332,7 @@ Publication-ready figures are created using colourblind-friendly palettes. Each 
 
 <figure>
 <center>
-  <img src="figures/volcanoPlot.png" width="950" style="display:block">
+  <img src="figures/volcanoPlot.png" width="850" style="display:block">
   <br>
   <figcaption><b>Figure 7:</b> Volcano plot of genomic regions enrichment.</figcaption>
 </center>
@@ -308,7 +342,7 @@ Publication-ready figures are created using colourblind-friendly palettes. Each 
 ## <span class="brsmallneg"></span> Visual customization
 <figure>
 <center>
-  <img src="figures/col_merged.png" width="100%" style="display:block">
+  <img src="figures/col_merged.png" width="70%" style="display:block">
   <br>
   <figcaption><b>Figure 8:</b> Colour customization of figures.</figcaption>
 </center>
@@ -330,7 +364,7 @@ Publication-ready figures are created using colourblind-friendly palettes. Each 
 <!-- </figure> -->
 <!-- </b> -->
 
-<!-- <img width="20%" style="float: right;" src="~/git/poster_urpp_conference/figures/colourOptions.png"/> -->
+<!-- <img width="20%" style="float: right;" src="figures/colourOptions.png"/> -->
 
 # Comparison with other tools
 
@@ -349,7 +383,9 @@ Publication-ready figures are created using colourblind-friendly palettes. Each 
 #                       fig.align = 'center',
 #                       out.width = "40%")
 
-tool_comparison_table <- read_xlsx("figures/Pipelines_comparison.xlsx", sheet = 2)
+# tool_comparison_table <- read_xlsx("figures/Pipelines_comparison.xlsx", sheet = 2)
+tool_comparison_table <- read.csv("figures/Pipelines_comparison_09092024.csv")
+
 
 # colnames(tool_comparison_table)[1] <- ""
 tool_comparison_table <- data.frame(lapply(tool_comparison_table, gsub, pattern = "\\<T\\>", replacement = "<h3>&#10003; </h3>"))
@@ -364,7 +400,8 @@ colnames(tool_comparison_table)[2] <- "methylseq"
 colnames(tool_comparison_table)[5] <- "MethylC-analyzer"
 # colnames(tool_comparison_table)[1] <- "<b>Methylator</b>"
 tool_comparison_table["Copy number variation analysis", "Methylator"] <- "CNVkit"
-tool_comparison_table[13,1] <- "GO, KEGG, Reactome, user-defined"
+# tool_comparison_table[13,1] <- "GO, KEGG, Reactome, user-defined"
+tool_comparison_table[4,1] <- "WGBS, RRBS, PBAT, TAPS, ABBS, single-cell"
 
 # stripe_color
 # stripe_index
