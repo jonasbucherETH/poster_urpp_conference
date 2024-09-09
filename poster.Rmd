@@ -325,7 +325,7 @@ Publication-ready figures are created using recommended colourblind-friendly pal
 <center>
   <img src="figures/dotPlot_full2.png" width="95%" style="display:block">
   <br>
-  <figcaption><b>Figure 6:</b> Dot plot of biological processes enrichment.</figcaption>
+  <figcaption><b>Figure 5:</b> Dot plot of biological processes enrichment.</figcaption>
 </center>
 </figure>
 </b>
@@ -334,7 +334,7 @@ Publication-ready figures are created using recommended colourblind-friendly pal
 <center>
   <img src="figures/volcanoPlot.png" width="850" style="display:block">
   <br>
-  <figcaption><b>Figure 7:</b> Volcano plot of genomic regions enrichment.</figcaption>
+  <figcaption><b>Figure 6:</b> Volcano plot of genomic regions enrichment.</figcaption>
 </center>
 </figure>
 </b>
@@ -344,7 +344,7 @@ Publication-ready figures are created using recommended colourblind-friendly pal
 <center>
   <img src="figures/col_merged.png" width="70%" style="display:block">
   <br>
-  <figcaption><b>Figure 8:</b> Colour customization of figures.</figcaption>
+  <figcaption><b>Figure 7:</b> Colour customization of figures.</figcaption>
 </center>
 </figure>
 </b>
